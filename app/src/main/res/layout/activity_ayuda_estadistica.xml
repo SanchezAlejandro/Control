@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AyudaEstadistica">
+
+    <RelativeLayout
+        android:id="@+id/rlAyudaDeEstadisticas"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="?attr/actionBarSize"
+        >
+
+        <TextView
+            android:id="@+id/tvtituloEstadisticas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Estadisticas"
+            android:textSize="24dp"
+            android:textColor="@color/colorPrimary"
+            android:layout_marginBottom="5dp"
+            />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/tvtituloEstadisticas">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:id="@+id/rlScrollDeEstadisticas"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="En esta sección podrás escoger el tipo de gráfica que quieres ver. Ver Imagen 001."
+                        android:textColor="@color/negro"
+                        android:textSize="16dp"
+                        android:layout_marginBottom="5dp"
+                        />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:layout_marginBottom="5dp"
+                        >
+
+                        <ImageView
+                            android:layout_width="300dp"
+                            android:layout_height="300dp"
+                            android:src="@drawable/estadisticas_opciones" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Imagen 001"
+                            android:gravity="center"/>
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Una vez seleccinada la opción, abajo de estás aparecerá el tipo de gráfica que seleccionaste con los datos de Tiempo y la Cantidad de personas que entraron en dicha hora. Ver imagen 002"
+                        android:textColor="@color/negro"
+                        android:textSize="16dp"
+                        android:layout_marginBottom="5dp"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:layout_marginBottom="5dp"
+                        >
+
+                        <ImageView
+                            android:layout_width="300dp"
+                            android:layout_height="300dp"
+                            android:src="@drawable/estadisticas_seleccion" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Imagen 002"
+                            android:gravity="center"/>
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Si seleccionaste *Barras* se mostrará una gráfica similar a la de la Imagen 003."
+                        android:layout_marginBottom="5dp"
+                        />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:layout_marginBottom="5dp"
+                        >
+
+                        <ImageView
+                            android:layout_width="300dp"
+                            android:layout_height="300dp"
+                            android:src="@drawable/estadisticas_barras" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Imagen 003"
+                            android:gravity="center"/>
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Si seleccionaste *Poligono* entonces la gráfica será como en la siguiente imagen (Imagen 004)."
+                        android:layout_marginBottom="5dp"
+                        />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:layout_marginBottom="5dp"
+                        >
+
+                        <ImageView
+                            android:layout_width="300dp"
+                            android:layout_height="300dp"
+                            android:src="@drawable/estadisticas_poligono" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Imagen 004"
+                            android:gravity="center"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </ScrollView>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

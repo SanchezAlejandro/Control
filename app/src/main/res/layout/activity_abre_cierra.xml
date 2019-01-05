@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AbreCierra">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/todoAbreCierra"
+        android:layout_marginTop="?attr/actionBarSize"
+        android:elevation="4dp"
+        >
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_margin="10dp"
+            android:src="@drawable/ayudadota"
+            android:id="@+id/ayudaControl"
+            android:elevation="4dp"
+            />
+
+        <WebView
+            android:layout_width="1dp"
+            android:layout_height="1dp"
+            android:id="@+id/web"
+            android:visibility="invisible"
+            ></WebView>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Control de puerta"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/hoja_fragmento"
+            android:gravity="center"
+            android:textColor="@color/blanco"
+            android:textSize="45dp"
+            android:layout_marginBottom="50dp"
+            android:id="@+id/textViewTituloControlDePuerta"
+            android:elevation="4dp"
+            />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/relativeLayoutCerrado"
+            android:layout_below="@+id/textViewTituloControlDePuerta"
+            >
+
+            <ImageView
+                android:layout_width="250dp"
+                android:layout_height="250dp"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/cerrado"
+                android:id="@+id/imagencerrado"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cerrado"
+                android:textSize="30dp"
+                android:textColor="@color/colorPrimary"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/textViewCerrado"
+                android:layout_below="@+id/imagencerrado"
+                />
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/relativeLayoutAbierto"
+            android:layout_below="@+id/textViewTituloControlDePuerta"
+            android:visibility="invisible"
+            >
+
+            <ImageView
+                android:layout_width="250dp"
+                android:layout_height="250dp"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/abierto"
+                android:id="@+id/imagenAbierto"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Abierto"
+                android:textSize="30dp"
+                android:textColor="@color/colorPrimary"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/textViewAbierto"
+                android:layout_below="@+id/imagenAbierto"
+                />
+        </RelativeLayout>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="50dp"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/botonAbrir"
+            android:text=" Abrir "
+            android:background="@drawable/ripple"
+            android:textColor="@color/negro"
+            android:layout_alignParentBottom="true"
+            android:elevation="4dp"
+            android:stateListAnimator="@drawable/animacionboton"
+            android:layout_marginBottom="25dp"
+            />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="50dp"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/botonCerrar"
+            android:text=" Cerrar "
+            android:background="@drawable/ripple"
+            android:textColor="@color/negro"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="25dp"
+            android:elevation="4dp"
+            android:stateListAnimator="@drawable/animacionboton"
+            android:visibility="invisible"
+            />
+
+    </RelativeLayout>
+
+</RelativeLayout>

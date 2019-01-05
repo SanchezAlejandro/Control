@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RecuperarCuenta">
+
+    <include layout="@layout/bar"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/RelativeLayoutTodoRecuperarCuenta"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="?attr/actionBarSize"
+            android:text="Recupera Cuenta"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/hoja_fragmento"
+            android:gravity="center"
+            android:textColor="@color/blanco"
+            android:textSize="45dp"
+            android:id="@+id/textViewTituloRecuperarCuenta"
+
+            />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/relativeLayoutRecuperar"
+            android:layout_below="@+id/textViewTituloRecuperarCuenta"
+
+            >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Por favor ingresa tu correo electrónico."
+                android:textColor="@color/colorPrimaryDark"
+                android:id="@+id/textViewtituloLogin"
+                android:textSize="24dp"
+                android:textStyle="bold"
+                android:layout_marginTop="16dp"
+                android:gravity="center"
+                />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:id="@+id/textViewMensajeDeCorreo"
+                    android:text="Te enviaremos un correo con la contraseña de tu cuenta para poder iniciar sesión"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginLeft="20dp"
+                    />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:id="@+id/editTextCorreo"
+                    android:layout_below="@id/textViewMensajeDeCorreo"
+                    android:textColor="@color/negro"
+                    android:hint="Ingresa correo electrónico"
+                    android:textColorHint="#A6000000"
+                    android:textSize="20dp"
+                    android:background="@drawable/fondo_recuperar_contrarsenia"
+                    android:drawableLeft="@drawable/correo"
+                    android:drawablePadding="5dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginBottom="5dp"
+                    />
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:id="@+id/ButtonEnviarCorreo"
+                    android:text="Enviar"
+                    android:layout_below="@id/editTextCorreo"
+                    android:gravity="center"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginBottom="6dp"
+                    android:textColor="@color/blanco"
+                    android:textSize="20dp"
+                    android:background="@drawable/fondo_boton_login"
+                    android:elevation="4dp"
+                    />
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:id="@+id/RelativeLayoutMensajeDeEnviado"
+            android:layout_centerInParent="true"
+            android:background="@drawable/fondo_enviar_correo"
+            android:elevation="4dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:visibility="invisible"
+            >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Por favor revisa tu correo."
+                android:gravity="center"
+                android:layout_marginTop="45dp"
+                android:textSize="24dp"
+                android:textColor="@color/blanco"
+                />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/BotonOkRevisar"
+                android:text="ok"
+                android:textSize="18dp"
+                android:textColor="@color/colorPrimary"
+                android:background="@drawable/botonpp"
+                android:layout_marginBottom="6dp"
+                android:elevation="4dp"
+                />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>
