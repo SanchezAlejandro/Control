@@ -47,13 +47,6 @@ public class AbreCierra extends AppCompatActivity implements View.OnClickListene
         imagenCerrado = findViewById(R.id.relativeLayoutCerrado);
         u = findViewById(R.id.web);
         ayudacontrol = findViewById(R.id.ayudaControl);
-        /*sAC = findViewById(R.id.sAC);
-        sAC.setOnItemClickListener((AdapterView.OnItemClickListener) this);
-        String[] colores = {"Amarillo pastel","Ambar","Azul pastel", "Azul gris","Blanco","Gris","Índigo pastel","Lima pastel","Purpura Pastel","Rosa pastel","Verde azulado","Verde menta","Verde pastel"};
-        sAC.setAdapter(new ArrayAdapter<String>(this, R.layout.spinneritem, colores));
-        SharedPreferences preferencias = getSharedPreferences("misPreferencias", Context.MODE_PRIVATE);
-        int colorBotones = preferencias.getInt("ColorBotones", 4);
-        sAC.setSelection(colorBotones);*/
 
         ayudacontrol.setOnClickListener(this);
 
@@ -67,7 +60,7 @@ public class AbreCierra extends AppCompatActivity implements View.OnClickListene
 
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_lateral, menu);
+        getMenuInflater().inflate(R.menu.menu_otras_actividades, menu);
         return true;
     }
 

@@ -6,6 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".AyudaEstadistica">
 
+    <include layout="@layout/bar"/>
+
     <RelativeLayout
         android:id="@+id/rlAyudaDeEstadisticas"
         android:layout_width="match_parent"

@@ -24,17 +24,16 @@ public class AyudaControl extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ayuda_control);
 
-        //Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        //setSupportActionBar(toolbar);
+        Toolbar bar = (Toolbar) findViewById(R.id.bar);
+        setSupportActionBar(bar);
 
         rltodoP = findViewById(R.id.rlAyudaDeControlDePuerta);
         fondoColor();
     }
 
-    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_lateral, menu);
+        getMenuInflater().inflate(R.menu.menu_otras_actividades, menu);
         return true;
     }
 

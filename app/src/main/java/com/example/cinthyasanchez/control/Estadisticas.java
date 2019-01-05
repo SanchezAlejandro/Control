@@ -33,8 +33,8 @@ public class Estadisticas extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_estadisticas);
 
-        //Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        //setSupportActionBar(toolbar);
+        Toolbar bar = (Toolbar) findViewById(R.id.bar);
+        setSupportActionBar(bar);
 
         barras = findViewById(R.id.radioButtonGraficaBarras);
         histograma = findViewById(R.id.radioButtonGraficaHistograma);
@@ -72,7 +72,7 @@ public class Estadisticas extends AppCompatActivity implements View.OnClickListe
 
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_lateral, menu);
+        getMenuInflater().inflate(R.menu.menu_otras_actividades, menu);
         return true;
     }
 

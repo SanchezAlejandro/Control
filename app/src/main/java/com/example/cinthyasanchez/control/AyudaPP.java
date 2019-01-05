@@ -22,17 +22,16 @@ public class AyudaPP extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ayuda_pp);
 
-        //Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        //setSupportActionBar(toolbar);
+        Toolbar bar = (Toolbar) findViewById(R.id.bar);
+        setSupportActionBar(bar);
 
         todoAPP = findViewById(R.id.rlAyudaDePP);
         fondoColor();
     }
 
-    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_lateral, menu);
+        getMenuInflater().inflate(R.menu.menu_otras_actividades, menu);
         return true;
     }
 
@@ -41,7 +40,7 @@ public class AyudaPP extends AppCompatActivity {
         finish();
     }
 
-    @Override
+   @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
             case R.id.action_regresar:

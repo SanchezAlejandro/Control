@@ -6,6 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".AyudaPP">
 
+    <include layout="@layout/bar"/>
+
     <RelativeLayout
         android:id="@+id/rlAyudaDePP"
         android:layout_width="match_parent"

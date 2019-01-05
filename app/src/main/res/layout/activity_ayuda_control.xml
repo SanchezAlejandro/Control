@@ -6,6 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".AyudaControl">
 
+    <include layout="@layout/bar"/>
+
     <RelativeLayout
         android:id="@+id/rlAyudaDeControlDePuerta"
         android:layout_width="match_parent"
