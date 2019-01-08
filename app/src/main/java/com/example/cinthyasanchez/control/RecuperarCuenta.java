@@ -1,5 +1,6 @@
 package com.example.cinthyasanchez.control;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
@@ -7,12 +8,20 @@ import android.os.StrictMode;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.Toolbar;
+
 import java.util.Properties;
+import java.util.concurrent.Delayed;
+
 import javax.mail.Authenticator;
 import javax.mail.Message;
 import javax.mail.PasswordAuthentication;
@@ -25,13 +34,10 @@ import static javax.mail.internet.InternetAddress.*;
 public class RecuperarCuenta extends AppCompatActivity implements View.OnClickListener{
 
     EditText correoR;
-    Button enviarCorreo, okEnviado;
-    RelativeLayout mensajeEnviado;
+    Button enviarCorreo;
 
     String correoDeLaApp = "controlDePuerta@gmail.com";
     String contraseñaDeLaApp = "control1234";
-    //String yo = "ppjando66@gmail.com";
-    //String contenido = "esta es tu contraseña";
 
     javax.mail.Session sesion;
 
@@ -40,13 +46,100 @@ public class RecuperarCuenta extends AppCompatActivity implements View.OnClickLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recuperar_cuenta);
 
+        android.support.v7.widget.Toolbar bar = (android.support.v7.widget.Toolbar) findViewById(R.id.bar);
+        setSupportActionBar(bar);
+
         correoR = findViewById(R.id.editTextCorreo);
         enviarCorreo = findViewById(R.id.ButtonEnviarCorreo);
-        mensajeEnviado = findViewById(R.id.RelativeLayoutMensajeDeEnviado);
-        okEnviado = findViewById(R.id.BotonOkRevisar);
 
         enviarCorreo.setOnClickListener(this);
-        okEnviado.setOnClickListener(this);
+    }
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_otras_actividades, menu);
+        return true;
+    }
+
+    public void muestraDialog() {
+        Dialog dialog = null;
+        dialog = new Dialog(this,R.style.Theme_Dialog_Translucent);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setCancelable(false);
+        dialog.setContentView(R.layout.dialog_cerrar_app);
+
+        ((TextView) dialog.findViewById(R.id.text_cerrar_sesion)).setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                finishAffinity();
+            }
+        });
+
+        final Dialog finalDialog2 = dialog;
+        ((TextView) dialog.findViewById(R.id.text_cancelar)).setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                finalDialog2.dismiss();
+
+            }
+        });
+
+        dialog.show();
+    }
+
+    public void muestraDialogErrorCorreo() {
+        Dialog dialog = null;
+        dialog = new Dialog(this,R.style.Theme_Dialog_Translucent);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setCancelable(false);
+        dialog.setContentView(R.layout.dialog_error_de_correo);
+
+        final Dialog finalDialog = dialog;
+        ((TextView) dialog.findViewById(R.id.text_ok)).setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                finalDialog.dismiss();
+            }
+        });
+
+        dialog.show();
+    }
+
+    public void muestraDialogCorreoEnviado() {
+        Dialog dialog = null;
+        dialog = new Dialog(this,R.style.Theme_Dialog_Translucent);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setCancelable(false);
+        dialog.setContentView(R.layout.dialog_revisar_correo);
+
+        final Dialog finalDialog = dialog;
+        ((TextView) dialog.findViewById(R.id.text_ok_revisar)).setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                finalDialog.dismiss();
+                finish();
+            }
+        });
+
+        dialog.show();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.action_regresar:
+                finish();
+                break;
+            case R.id.action_salir:
+                muestraDialog();
+                break;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
@@ -88,29 +181,15 @@ public class RecuperarCuenta extends AppCompatActivity implements View.OnClickLi
                             mensaje.setContent(contenido, "text/html; charset=utf-8");
                             Transport.send(mensaje);
                             Toast.makeText(this, "Correo enviado", Toast.LENGTH_SHORT).show();
-                            mensajeEnviado.setVisibility(View.VISIBLE);
+                            muestraDialogCorreoEnviado();
                         }
 
                     } catch (Exception e){
 
                     }
                 } else {
-                    AlertDialog.Builder dialogo1 = new AlertDialog.Builder(this);
-                    dialogo1.setTitle("Ups!");
-                    dialogo1.setMessage("El correo que ingresaste no es el de tu cuenta, por favor ingresa el correo nuevamente");
-                    dialogo1.setCancelable(false);
-                    dialogo1.setPositiveButton("ok", new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialogo1, int id) {
-                            correoR.setText("");
-                            correoR.requestFocus();
-                        }
-                    });
-                    dialogo1.show();
+                    muestraDialogErrorCorreo();
                 }
-                break;
-            case R.id.BotonOkRevisar:
-                mensajeEnviado.setVisibility(View.INVISIBLE);
-                finish();
                 break;
         }
     }

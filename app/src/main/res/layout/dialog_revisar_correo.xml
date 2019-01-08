@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/linear_dialog"
+    android:background="@drawable/forma_dialog_correo_enviado"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/text_titulo_cerrar_sesion"
+        android:textStyle="bold"
+        android:text="Correo enviado con éxito!"
+        android:textColor="@color/blanco"
+        android:textSize="17dp"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:layout_width="238dp"
+        android:layout_height="21dp"
+        />
+
+    <TextView
+        android:id="@+id/text_menseje"
+        android:text="Por favor revisa tu correo."
+        android:textColor="@color/blanco"
+        android:textSize="13dp"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_width="238dp"
+        android:layout_height="53.5dp"
+        />
+    
+    <RelativeLayout
+        android:background="@drawable/linea_divisora_horizontal_blanca"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+            
+    <RelativeLayout
+        android:layout_alignParentBottom="true"
+        android:layout_width="270dp"
+        android:layout_height="44dp">
+
+            <TextView
+                android:id="@+id/text_ok_revisar"
+                android:background="@drawable/botonpp"
+                android:elevation="4dp"
+                android:gravity="center"
+                android:text="OK"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="17dp"
+                android:layout_centerInParent="true"
+                android:layout_marginBottom="6dp"
+                android:layout_width="80dp"
+                android:layout_height="44dp" />
+
+    </RelativeLayout>
+
+</LinearLayout>

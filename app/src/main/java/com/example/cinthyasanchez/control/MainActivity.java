@@ -3,6 +3,7 @@ package com.example.cinthyasanchez.control;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.SuppressLint;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -18,6 +19,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewAnimationUtils;
+import android.view.Window;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -148,24 +150,38 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         return true;
     }
 
+    public void muestraDialog() {
+        Dialog dialog = null;
+        dialog = new Dialog(this,R.style.Theme_Dialog_Translucent);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setCancelable(false);
+        dialog.setContentView(R.layout.dialog_cerrar_app);
+
+        ((TextView) dialog.findViewById(R.id.text_cerrar_sesion)).setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+
+        final Dialog finalDialog2 = dialog;
+        ((TextView) dialog.findViewById(R.id.text_cancelar)).setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                finalDialog2.dismiss();
+
+            }
+        });
+
+        dialog.show();
+    }
+
     public boolean onOptionsItemSelected(MenuItem menuItem){
         switch (menuItem.getItemId()){
             case R.id.salir:
-                AlertDialog.Builder dialogo1 = new AlertDialog.Builder(this);
-                dialogo1.setTitle("Espera");
-                dialogo1.setMessage("¿Está seguro de salir de la aplicación?");
-                dialogo1.setCancelable(false);
-                dialogo1.setPositiveButton("Si", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialogo1, int id) {
-                        finish();
-                    }
-                });
-                dialogo1.setNegativeButton("No", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialogo1, int id) {
-
-                    }
-                });
-                dialogo1.show();
+                muestraDialog();
                 break;
             case R.id.ajustes:
 
@@ -361,21 +377,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onBackPressed(){
-        AlertDialog.Builder dialogo1 = new AlertDialog.Builder(this);
-        dialogo1.setTitle("Espera");
-        dialogo1.setMessage("¿Está seguro de salir de la aplicación?");
-        dialogo1.setCancelable(false);
-        dialogo1.setPositiveButton("Si", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialogo1, int id) {
-                finish();
-            }
-        });
-        dialogo1.setNegativeButton("No", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialogo1, int id) {
-
-            }
-        });
-        dialogo1.show();
+        muestraDialog();
     }
 
     @SuppressLint("ResourceType")

@@ -1,6 +1,7 @@
 package com.example.cinthyasanchez.control;
 
 import android.annotation.SuppressLint;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
@@ -13,7 +14,10 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.Window;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 public class AyudaControl extends AppCompatActivity {
 
@@ -42,6 +46,34 @@ public class AyudaControl extends AppCompatActivity {
         finish();
     }
 
+    public void muestraDialog() {
+        Dialog dialog = null;
+        dialog = new Dialog(this,R.style.Theme_Dialog_Translucent);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setCancelable(false);
+        dialog.setContentView(R.layout.dialog_cerrar_app);
+
+        ((TextView) dialog.findViewById(R.id.text_cerrar_sesion)).setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                finishAffinity();
+            }
+        });
+
+        final Dialog finalDialog2 = dialog;
+        ((TextView) dialog.findViewById(R.id.text_cancelar)).setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                finalDialog2.dismiss();
+
+            }
+        });
+
+        dialog.show();
+    }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
@@ -49,22 +81,7 @@ public class AyudaControl extends AppCompatActivity {
                 finish();
                 break;
             case R.id.action_salir:
-                AlertDialog.Builder dialogo1 = new AlertDialog.Builder(this);
-                dialogo1.setTitle("Espera");
-                dialogo1.setMessage("¿Está seguro de salir de la aplicación?");
-                dialogo1.setCancelable(false);
-                dialogo1.setPositiveButton("Si", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialogo1, int id) {
-                        finishAffinity();
-                    }
-                });
-                dialogo1.setNegativeButton("No", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialogo1, int id) {
-
-                    }
-                });
-                dialogo1.show();
-                break;
+                muestraDialog();
         }
 
         return super.onOptionsItemSelected(item);

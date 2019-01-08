@@ -26,7 +26,8 @@
         <activity android:name=".AyudaEstadistica" />
         <activity android:name=".AbreCierra" />
         <activity android:name=".Estadisticas" />
-        <activity android:name=".RecuperarCuenta"></activity>
+        <activity android:name=".RecuperarCuenta"
+            android:windowSoftInputMode="stateHidden"></activity>
     </application>
 
 </manifest>
