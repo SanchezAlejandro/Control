@@ -13,10 +13,12 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.text.InputType;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewAnimationUtils;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -272,6 +274,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         }
                     }
                 }
+                InputMethodManager inputMethodManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                inputMethodManager.hideSoftInputFromWindow(contraseniaLogin.getWindowToken(), 0);
                 break;
             case R.id.ButtonRegistro:
                 String usuarioReg = usuarioRegistro.getText().toString();
@@ -310,6 +314,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         }
                     }
                 }
+                InputMethodManager inputMethodManagerR = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                inputMethodManagerR.hideSoftInputFromWindow(contraseniaRegistro.getWindowToken(), 0);
                 break;
             case R.id.ButtonOkeiMensajeDeLogin:
                 mensajelogin.setVisibility(View.INVISIBLE);

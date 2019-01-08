@@ -135,7 +135,7 @@
         android:layout_height="match_parent"
         android:id="@+id/relativeLayoutRegistrarse"
         android:background="@color/colorPrimary"
-android:visibility="invisible"
+        android:visibility="invisible"
         >
 
         <TextView
@@ -147,98 +147,116 @@ android:visibility="invisible"
             android:textSize="32dp"
             android:textStyle="bold"
             android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
             android:gravity="center"
             />
 
-        <RelativeLayout
+        <ScrollView
+            android:layout_below="@+id/textViewtituloRegistrarse"
+            android:layout_marginTop="60dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
             >
 
-            <TextView
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:id="@+id/textViewBienvenidoRegistro"
-                android:text="Bienvenido. Por favor registrate."
-                android:textColor="@color/blanco"
-                android:textSize="24dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="16dp"
-                android:layout_marginRight="20dp"
-                android:layout_marginLeft="20dp"
-                />
+                >
 
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:id="@+id/editTextUsuarioRegistro"
-                android:layout_below="@id/textViewBienvenidoRegistro"
-                android:textColor="@color/blanco"
-                android:hint="Ingresa nombre de usuario"
-                android:textColorHint="@color/colorSecundario"
-                android:textSize="20dp"
-                android:background="@drawable/fondo_usuario"
-                android:drawableLeft="@drawable/usuario"
-                android:drawablePadding="5dp"
-                android:layout_marginRight="20dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginBottom="5dp"
-                />
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    >
 
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:id="@+id/editTextContraseñaRegistro"
-                android:layout_below="@id/editTextUsuarioRegistro"
-                android:hint="Ingresa contraseña"
-                android:textColor="@color/blanco"
-                android:password="true"
-                android:textColorHint="@color/colorSecundario"
-                android:textSize="20dp"
-                android:drawableLeft="@drawable/password"
-                android:drawablePadding="5dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:layout_marginBottom="5dp"
-                android:background="@drawable/fondo_usuario"
-                />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:id="@+id/textViewBienvenidoRegistro"
+                        android:text="Bienvenido. Por favor registrate."
+                        android:textColor="@color/blanco"
+                        android:textSize="24dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginBottom="16dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginLeft="20dp"
+                        />
 
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:id="@+id/editTextCorreoRegistro"
-                android:layout_below="@id/editTextContraseñaRegistro"
-                android:textColor="@color/blanco"
-                android:hint="Ingresa tu correo"
-                android:textColorHint="@color/colorSecundario"
-                android:textSize="20dp"
-                android:background="@drawable/fondo_contrasenia"
-                android:drawableLeft="@drawable/mail"
-                android:drawablePadding="5dp"
-                android:layout_marginRight="20dp"
-                android:layout_marginLeft="20dp"
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:id="@+id/editTextUsuarioRegistro"
+                        android:layout_below="@id/textViewBienvenidoRegistro"
+                        android:textColor="@color/blanco"
+                        android:hint="Ingresa nombre de usuario"
+                        android:textColorHint="@color/colorSecundario"
+                        android:textSize="20dp"
+                        android:background="@drawable/fondo_usuario"
+                        android:drawableLeft="@drawable/usuario"
+                        android:drawablePadding="5dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginBottom="5dp"
+                        />
 
-                />
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:id="@+id/editTextContraseñaRegistro"
+                        android:layout_below="@id/editTextUsuarioRegistro"
+                        android:hint="Ingresa contraseña"
+                        android:textColor="@color/blanco"
+                        android:password="true"
+                        android:textColorHint="@color/colorSecundario"
+                        android:textSize="20dp"
+                        android:drawableLeft="@drawable/password"
+                        android:drawablePadding="5dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginBottom="5dp"
+                        android:background="@drawable/fondo_usuario"
+                        />
 
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:id="@+id/ButtonRegistro"
-                android:text="Registrarse"
-                android:layout_below="@id/editTextCorreoRegistro"
-                android:gravity="center"
-                android:layout_marginTop="25dp"
-                android:layout_marginRight="20dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginBottom="6dp"
-                android:textColor="@color/blanco"
-                android:textSize="20dp"
-                android:background="@drawable/fondo_boton_login"
-                android:elevation="4dp"
-                />
-        </RelativeLayout>
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:id="@+id/editTextCorreoRegistro"
+                        android:layout_below="@id/editTextContraseñaRegistro"
+                        android:textColor="@color/blanco"
+                        android:hint="Ingresa tu correo"
+                        android:textColorHint="@color/colorSecundario"
+                        android:textSize="20dp"
+                        android:background="@drawable/fondo_contrasenia"
+                        android:drawableLeft="@drawable/mail"
+                        android:drawablePadding="5dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginLeft="20dp"
+
+                        />
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:id="@+id/ButtonRegistro"
+                        android:text="Registrarse"
+                        android:layout_below="@id/editTextCorreoRegistro"
+                        android:gravity="center"
+                        android:layout_marginTop="25dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginBottom="16dp"
+                        android:textColor="@color/blanco"
+                        android:textSize="20dp"
+                        android:background="@drawable/fondo_boton_login"
+                        android:elevation="4dp"
+                        />
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+        </ScrollView>
 
     </RelativeLayout>
 
@@ -249,7 +267,7 @@ android:visibility="invisible"
         android:layout_height="match_parent"
         android:id="@+id/relativeLayoutLogin"
         android:background="@color/colorPrimary"
-android:visibility="invisible"
+        android:visibility="invisible"
         >
 
         <TextView
@@ -261,95 +279,105 @@ android:visibility="invisible"
             android:textSize="32dp"
             android:textStyle="bold"
             android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
             android:gravity="center"
             />
 
-        <RelativeLayout
+        <ScrollView
+            android:layout_below="@id/textViewtituloLogin"
+            android:layout_marginTop="70dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
             >
 
-            <TextView
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:id="@+id/textViewBienvenido"
-                android:text="Bienvenido"
-                android:textColor="@color/blanco"
-                android:textSize="24dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="16dp"
-                android:layout_marginRight="20dp"
-                android:layout_marginLeft="20dp"
-                />
+                android:layout_centerInParent="true"
+                >
 
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:id="@+id/editTextUsuario"
-                android:layout_below="@id/textViewBienvenido"
-                android:textColor="@color/blanco"
-                android:hint="Ingresa usuario"
-                android:textColorHint="#A6FFFFFF"
-                android:textSize="20dp"
-                android:background="@drawable/fondo_usuario"
-                android:drawableLeft="@drawable/usuario"
-                android:drawablePadding="5dp"
-                android:layout_marginRight="20dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginBottom="5dp"
-                />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:id="@+id/textViewBienvenido"
+                    android:text="Bienvenido"
+                    android:textColor="@color/blanco"
+                    android:textSize="24dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginLeft="20dp"
+                    />
 
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:id="@+id/editTextContraseña"
-                android:layout_below="@id/editTextUsuario"
-                android:hint="Ingresa contraseña"
-                android:password="true"
-                android:textColor="@color/blanco"
-                android:textColorHint="#A6FFFFFF"
-                android:textSize="20dp"
-                android:drawableLeft="@drawable/password"
-                android:drawablePadding="5dp"
-                android:layout_marginRight="20dp"
-                android:layout_marginLeft="20dp"
-                android:background="@drawable/fondo_contrasenia"
-                />
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:id="@+id/editTextUsuario"
+                    android:layout_below="@id/textViewBienvenido"
+                    android:textColor="@color/blanco"
+                    android:hint="Ingresa usuario"
+                    android:textColorHint="#A6FFFFFF"
+                    android:textSize="20dp"
+                    android:background="@drawable/fondo_usuario"
+                    android:drawableLeft="@drawable/usuario"
+                    android:drawablePadding="5dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginBottom="5dp"
+                    />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/TextViewOlvideContrasenia"
-                android:layout_below="@id/editTextContraseña"
-                android:text="Olvidé mi contraseña"
-                android:textColor="@color/blanco"
-                android:gravity="right"
-                android:textSize="14dp"
-                android:layout_marginRight="50dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="8dp"
-                />
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:id="@+id/editTextContraseña"
+                    android:layout_below="@id/editTextUsuario"
+                    android:hint="Ingresa contraseña"
+                    android:password="true"
+                    android:textColor="@color/blanco"
+                    android:textColorHint="#A6FFFFFF"
+                    android:textSize="20dp"
+                    android:drawableLeft="@drawable/password"
+                    android:drawablePadding="5dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:background="@drawable/fondo_contrasenia"
+                    />
 
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:id="@+id/ButtonIniciarSesion"
-                android:text="Iniciar sesión"
-                android:layout_below="@id/TextViewOlvideContrasenia"
-                android:gravity="center"
-                android:layout_marginTop="35dp"
-                android:layout_marginRight="20dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginBottom="6dp"
-                android:textColor="@color/blanco"
-                android:textSize="20dp"
-                android:background="@drawable/fondo_boton_login"
-                android:elevation="4dp"
-                />
-        </RelativeLayout>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/TextViewOlvideContrasenia"
+                    android:layout_below="@id/editTextContraseña"
+                    android:text="Olvidé mi contraseña"
+                    android:textColor="@color/blanco"
+                    android:gravity="right"
+                    android:textSize="14dp"
+                    android:layout_marginRight="50dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="8dp"
+                    />
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:id="@+id/ButtonIniciarSesion"
+                    android:text="Iniciar sesión"
+                    android:layout_below="@id/TextViewOlvideContrasenia"
+                    android:gravity="center"
+                    android:layout_marginTop="35dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginBottom="16dp"
+                    android:textColor="@color/blanco"
+                    android:textSize="20dp"
+                    android:background="@drawable/fondo_boton_login"
+                    android:elevation="4dp"
+                    />
+            </RelativeLayout>
+
+        </ScrollView>
 
     </RelativeLayout>
 
