@@ -22,6 +22,8 @@ import android.widget.RadioButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import java.util.Objects;
+
 public class Estadisticas extends AppCompatActivity implements View.OnClickListener{
 
     RadioButton barras, histograma;
@@ -37,6 +39,7 @@ public class Estadisticas extends AppCompatActivity implements View.OnClickListe
 
         Toolbar bar = (Toolbar) findViewById(R.id.bar);
         setSupportActionBar(bar);
+        bar.setTitle("Estadísticas");
 
         barras = findViewById(R.id.radioButtonGraficaBarras);
         histograma = findViewById(R.id.radioButtonGraficaHistograma);
@@ -46,8 +49,7 @@ public class Estadisticas extends AppCompatActivity implements View.OnClickListe
         graficas = findViewById(R.id.webViews);
         aqui = findViewById(R.id.tvaqui);
         todoE = findViewById(R.id.todoEstadisticas);
-
-        fondoColor();
+        todoE.setBackgroundColor(Integer.parseInt(LocalStorage.GetLocalData(Estadisticas.this, LocalDictionary.BACKGROUND)));
 
         ayudaEst.setOnClickListener(this);
         barras.setOnClickListener(new View.OnClickListener() {
@@ -68,6 +70,16 @@ public class Estadisticas extends AppCompatActivity implements View.OnClickListe
                 graficas.getSettings().setJavaScriptEnabled(true);
                 graficas.setWebViewClient(new WebViewClient());
                 graficas.loadUrl("https://analytics.zoho.com/open-view/1881418000000002119");
+            }
+        });
+
+        ((AppCompatActivity) Objects.requireNonNull(Estadisticas.this)).setSupportActionBar(bar);
+        Objects.requireNonNull(((AppCompatActivity) Estadisticas.this).getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
+        Objects.requireNonNull(((AppCompatActivity) Estadisticas.this).getSupportActionBar()).setDisplayShowHomeEnabled(true);
+        bar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
     }
@@ -114,9 +126,6 @@ public class Estadisticas extends AppCompatActivity implements View.OnClickListe
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
-            case R.id.action_regresar:
-                finish();
-                break;
             case R.id.action_salir:
                 muestraDialog();
                 break;
@@ -133,54 +142,5 @@ public class Estadisticas extends AppCompatActivity implements View.OnClickListe
                 startActivity(iae);
                 break;
         }
-    }
-
-    @SuppressLint("ResourceType")
-    public void fondoColor() {
-        SharedPreferences preferencias = getSharedPreferences("misPreferencias", Context.MODE_PRIVATE);
-        int cb = preferencias.getInt("color", 4);
-
-        switch (cb) {
-            case 0:
-                cb = Color.parseColor(getResources().getString(R.color.amarilloPastel));
-                break;
-            case 1:
-                cb = Color.parseColor(getResources().getString(R.color.ambarPastel));
-                break;
-            case 2:
-                cb = Color.parseColor(getResources().getString(R.color.azulPastel));
-                break;
-            case 3:
-                cb = Color.parseColor(getResources().getString(R.color.azulGris));
-                break;
-            case 4:
-                cb = Color.parseColor(getResources().getString(R.color.blanco));
-                break;
-            case 5:
-                cb = Color.parseColor(getResources().getString(R.color.gris));
-                break;
-            case 6:
-                cb = Color.parseColor(getResources().getString(R.color.indigoPastel));
-                break;
-            case 7:
-                cb = Color.parseColor(getResources().getString(R.color.limaPastel));
-                break;
-            case 8:
-                cb = Color.parseColor(getResources().getString(R.color.purpuraPastel));
-                break;
-            case 9:
-                cb = Color.parseColor(getResources().getString(R.color.rosaPastel));
-                break;
-            case 10:
-                cb = Color.parseColor(getResources().getString(R.color.verdeAzuladoPastel));
-                break;
-            case 11:
-                cb = Color.parseColor(getResources().getString(R.color.verdePastelDos));
-                break;
-            case 12:
-                cb = Color.parseColor(getResources().getString(R.color.verdePastel));
-                break;
-        }
-        todoE.setBackgroundColor(cb);
     }
 }

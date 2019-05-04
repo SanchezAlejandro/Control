@@ -38,8 +38,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private Toolbar bar;
     Spinner spin, spinBotones;
-    RelativeLayout color, login, bienvenida, mensajeBotones, mensajeAjustes, mensajelogin, registrarse, consejos, salir;
-    LinearLayout botones, abre, estadistica, okRegistrarse, sigBienvenida, sigBotones, sigAjustes, sigSalir;
+    RelativeLayout color, login, registrarse, consejos;
+    LinearLayout bienvenida, mensajeBotones, mensajeAjustes, mensajelogin, botones, salir, abre, estadistica, okRegistrarse, sigBienvenida, sigBotones, sigAjustes, sigSalir;
     Button okColor, iniciar, registrarme;
     TextView saludoDeBienvenida, olvide;
     ImageView aiuda;
@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     int m = 1;
     int b = 1;
 
-    @SuppressLint("ResourceType")
+    @SuppressLint({"ResourceType", "ApplySharedPref"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -117,36 +117,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         spin.setAdapter(new ArrayAdapter<String>(this, R.layout.spinneritem, colores));
         spinBotones.setAdapter(new ArrayAdapter<String>(this,R.layout.spinneritem, colores));
 
-        SharedPreferences preferencias = getSharedPreferences("misPreferencias", Context.MODE_PRIVATE);
-        int indiceSpinner = preferencias.getInt("color", 4);
-        spin.setSelection(indiceSpinner);
+        Boolean isFirstRun = getSharedPreferences("LOGIN_FILE", MODE_PRIVATE).getBoolean("First_Time", true);
 
-        int indiceFondoBoton = preferencias.getInt("colorBotones", 4);
-        spinBotones.setSelection(indiceFondoBoton);
-
-        int inicio = preferencias.getInt("primera", 0);
-        inicio = inicio+1;
-
-        SharedPreferences.Editor editorR = preferencias.edit();
-        editorR.putInt("primera", inicio);
-        editorR.commit();
-
-
-        int primeraVez = preferencias.getInt("primera", 1);
-        if(primeraVez>1){
-            String usuarioSaludo = preferencias.getString("usuario", "usuario");
-
+        if (isFirstRun) {
+            spin.setSelection(4);
+            spinBotones.setSelection(4);
+        } else {
+            spin.setSelection(Integer.parseInt(LocalStorage.GetLocalData(MainActivity.this, LocalDictionary.INDEX_SPIN_BACKGROUN)));
+            spinBotones.setSelection(Integer.parseInt(LocalStorage.GetLocalData(MainActivity.this, LocalDictionary.INDEX_SPIN_BACKGROUN_BUTTON)));
             bienvenida.setVisibility(View.INVISIBLE);
             login.setVisibility(View.VISIBLE);
-            saludoDeBienvenida.setText("Hola "+ usuarioSaludo +", por favor inicia sesión para continuar.");
-        } else {
-
+            saludoDeBienvenida.setText("Hola "+ LocalStorage.GetLocalData(MainActivity.this, LocalDictionary.USER) +", por favor inicia sesión para continuar.");
         }
+        getSharedPreferences("LOGIN_FILE", MODE_PRIVATE).edit().putBoolean("First_Time", false).commit();
     }
 
     public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.opciones,menu);
-        //getMenuInflater().inflate(R.menu.activity_menu_lateral_pp, menu);
         return true;
     }
 
@@ -214,22 +201,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.llCon:
-                //MenuLateral.opcion=1;
                 Intent i = new Intent(this, AbreCierra.class);
                 startActivity(i);
                 break;
             case R.id.llEst:
-                //MenuLateral.opcion=2;
                 Intent i2 = new Intent(this, Estadisticas.class);
                 startActivity(i2);
                 break;
             case R.id.ayudaPP:
-                //MenuLateral.opcion=4;
                 Intent i4 = new Intent(getApplicationContext(), AyudaPP.class);
                 startActivity(i4);
                 break;
             case R.id.buttonOkColor:
-                //color.setVisibility(View.INVISIBLE);
 
                 if (Build.VERSION.SDK_INT == Build.VERSION_CODES.LOLLIPOP) {
                     // get the center for the clipping circle
@@ -259,17 +242,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
 
                 botones.setVisibility(View.VISIBLE);
-                SharedPreferences preferencias = getSharedPreferences("misPreferencias", Context.MODE_PRIVATE);
-
-                SharedPreferences.Editor editor = preferencias.edit();
-                editor.putInt("color", m);
-                editor.putInt("colorBotones", b);
-                editor.commit();
+                //LocalStorage.SetLocalData(MainActivity.this, LocalDictionary.BACKGROUND, String. valueOf(m));
+                //LocalStorage.SetLocalData(MainActivity.this, LocalDictionary.BACKGROUND_BUTTONS, String. valueOf(b));
                 break;
             case R.id.ButtonIniciarSesion:
-                SharedPreferences preferenciasL = getSharedPreferences("misPreferencias", Context.MODE_PRIVATE);
-                String usuarioShare = preferenciasL.getString("usuario", "usuario");
-                String contraseñiaShare = preferenciasL.getString("contrasenia", "contrasenia");
+                String usuarioShare = LocalStorage.GetLocalData(MainActivity.this, LocalDictionary.USER);
+                String contraseñiaShare = LocalStorage.GetLocalData(MainActivity.this, LocalDictionary.PASSWORD);
 
                 String usuarioEditLogin = usuariologin.getText().toString();
                 String contraseniaEditLogin = contraseniaLogin.getText().toString();
@@ -318,14 +296,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                 bar.setVisibility(View.VISIBLE);
                                 mensajeBotones.setVisibility(View.VISIBLE);
                                 consejos.setVisibility(View.VISIBLE);
-
-                                SharedPreferences preferenciasR = getSharedPreferences("misPreferencias", Context.MODE_PRIVATE);
-
-                                SharedPreferences.Editor editorR = preferenciasR.edit();
-                                editorR.putString("usuario", usuarioReg);
-                                editorR.putString("contrasenia", contraseniaReg);
-                                editorR.putString("correo", correoReg);
-                                editorR.commit();
+                                LocalStorage.SetLocalData(MainActivity.this, LocalDictionary.USER, usuarioReg);
+                                LocalStorage.SetLocalData(MainActivity.this, LocalDictionary.PASSWORD, contraseniaReg);
+                                LocalStorage.SetLocalData(MainActivity.this, LocalDictionary.EMAIL, correoReg);
                             }
                         }
                     }
@@ -389,151 +362,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 int i = obtenerPosicionItem(spin, item);
                 View contenedor = view.getRootView();
 
-                SharedPreferences preferencias = getSharedPreferences("misPreferencias", Context.MODE_PRIVATE);
-
-                m = i;
-
-                SharedPreferences.Editor editor = preferencias.edit();
-                editor.putInt("color", m);
-                editor.commit();
-
-                switch (i) {
-                    case 0:
-                        i = Color.parseColor(getResources().getString(R.color.amarilloPastel));
-                        break;
-                    case 1:
-                        i = Color.parseColor(getResources().getString(R.color.ambarPastel));
-                        break;
-                    case 2:
-                        i = Color.parseColor(getResources().getString(R.color.azulPastel));
-                        break;
-                    case 3:
-                        i = Color.parseColor(getResources().getString(R.color.azulGris));
-                        break;
-                    case 4:
-                        i = Color.parseColor(getResources().getString(R.color.blanco));
-                        break;
-                    case 5:
-                        i = Color.parseColor(getResources().getString(R.color.gris));
-                        break;
-                    case 6:
-                        i = Color.parseColor(getResources().getString(R.color.indigoPastel));
-                        break;
-                    case 7:
-                        i = Color.parseColor(getResources().getString(R.color.limaPastel));
-                        break;
-                    case 8:
-                        i = Color.parseColor(getResources().getString(R.color.purpuraPastel));
-                        break;
-                    case 9:
-                        i = Color.parseColor(getResources().getString(R.color.rosaPastel));
-                        break;
-                    case 10:
-                        i = Color.parseColor(getResources().getString(R.color.verdeAzuladoPastel));
-                        break;
-                    case 11:
-                        i = Color.parseColor(getResources().getString(R.color.verdePastel));
-                        break;
-                    case 12:
-                        i = Color.parseColor(getResources().getString(R.color.verdePastelDos));
-                        break;
-                }
-                contenedor.setBackgroundColor(i);
+                int back = LocalStorage.SetBackground(MainActivity.this, i);
+                LocalStorage.SetLocalData(MainActivity.this, LocalDictionary.INDEX_SPIN_BACKGROUN, String.valueOf(i));
+                LocalStorage.SetLocalData(MainActivity.this, LocalDictionary.BACKGROUND, String.valueOf(back));
+                contenedor.setBackgroundColor(back);
                 break;
 
             case R.id.spinnerColoresBotones:
                 String itemBotones = parent.getItemAtPosition(position).toString();
                 int iBotones=obtenerPosicionItem(spinBotones, itemBotones);
 
-                SharedPreferences preferenciasB = getSharedPreferences("misPreferencias", Context.MODE_PRIVATE);
-
-                b = iBotones;
-
-                SharedPreferences.Editor editorB = preferenciasB.edit();
-                editorB.putInt("colorBotones", b);
-                editorB.commit();
-
-                switch (iBotones) {
-                    case 0:
-                        abre.setBackgroundResource(R.drawable.ripple_amarillo);
-                        estadistica.setBackgroundResource(R.drawable.ripple_amarillo);
-                        //ayuda.setBackgroundResource(R.drawable.ripple_amarillo);
-                        okColor.setBackgroundResource(R.drawable.ripple_amarillo);
-                        break;
-                    case 1:
-                        abre.setBackgroundResource(R.drawable.ripple_ambar);
-                        estadistica.setBackgroundResource(R.drawable.ripple_ambar);
-                        //ayuda.setBackgroundResource(R.drawable.ripple_ambar);
-                        okColor.setBackgroundResource(R.drawable.ripple_ambar);
-                        break;
-                    case 2:
-                        abre.setBackgroundResource(R.drawable.ripple_azul);
-                        estadistica.setBackgroundResource(R.drawable.ripple_azul);
-                        //ayuda.setBackgroundResource(R.drawable.ripple_azul);
-                        okColor.setBackgroundResource(R.drawable.ripple_azul);
-                        break;
-                    case 3:
-                        abre.setBackgroundResource(R.drawable.ripple_azul_gris);
-                        estadistica.setBackgroundResource(R.drawable.ripple_azul_gris);
-                        //ayuda.setBackgroundResource(R.drawable.ripple_azul_gris);
-                        okColor.setBackgroundResource(R.drawable.ripple_azul_gris);
-                        break;
-                    case 4:
-                        abre.setBackgroundResource(R.drawable.ripple);
-                        estadistica.setBackgroundResource(R.drawable.ripple);
-                        //ayuda.setBackgroundResource(R.drawable.ripple);
-                        okColor.setBackgroundResource(R.drawable.ripple);
-                        break;
-                    case 5:
-                        abre.setBackgroundResource(R.drawable.ripple_gris);
-                        estadistica.setBackgroundResource(R.drawable.ripple_gris);
-                        ///ayuda.setBackgroundResource(R.drawable.ripple_gris);
-                        okColor.setBackgroundResource(R.drawable.ripple_gris);
-                        break;
-                    case 6:
-                        abre.setBackgroundResource(R.drawable.ripple_indigo);
-                        estadistica.setBackgroundResource(R.drawable.ripple_indigo);
-                        //ayuda.setBackgroundResource(R.drawable.ripple_indigo);
-                        okColor.setBackgroundResource(R.drawable.ripple_indigo);
-                        break;
-                    case 7:
-                        abre.setBackgroundResource(R.drawable.ripple_lima);
-                        estadistica.setBackgroundResource(R.drawable.ripple_lima);
-                        //ayuda.setBackgroundResource(R.drawable.ripple_lima);
-                        okColor.setBackgroundResource(R.drawable.ripple_lima);
-                        break;
-                    case 8:
-                        abre.setBackgroundResource(R.drawable.ripple_purpura);
-                        estadistica.setBackgroundResource(R.drawable.ripple_purpura);
-                        //ayuda.setBackgroundResource(R.drawable.ripple_purpura);
-                        okColor.setBackgroundResource(R.drawable.ripple_purpura);
-                        break;
-                    case 9:
-                        abre.setBackgroundResource(R.drawable.ripple_rosa);
-                        estadistica.setBackgroundResource(R.drawable.ripple_rosa);
-                        //ayuda.setBackgroundResource(R.drawable.ripple_rosa);
-                        okColor.setBackgroundResource(R.drawable.ripple_rosa);
-                        break;
-                    case 10:
-                        abre.setBackgroundResource(R.drawable.ripple_verdeazul);
-                        estadistica.setBackgroundResource(R.drawable.ripple_verdeazul);
-                        //ayuda.setBackgroundResource(R.drawable.ripple_verdeazul);
-                        okColor.setBackgroundResource(R.drawable.ripple_verdeazul);
-                        break;
-                    case 11:
-                        abre.setBackgroundResource(R.drawable.ripple_verdementa);
-                        estadistica.setBackgroundResource(R.drawable.ripple_verdementa);
-                        //ayuda.setBackgroundResource(R.drawable.ripple_verdementa);
-                        okColor.setBackgroundResource(R.drawable.ripple_verdementa);
-                        break;
-                    case 12:
-                        abre.setBackgroundResource(R.drawable.ripple_verde);
-                        estadistica.setBackgroundResource(R.drawable.ripple_verde);
-                        //ayuda.setBackgroundResource(R.drawable.ripple_verde);
-                        okColor.setBackgroundResource(R.drawable.ripple_verde);
-                        break;
-                }
-
+                int color = LocalStorage.SetBackgroundButtons(iBotones);
+                LocalStorage.SetLocalData(MainActivity.this, LocalDictionary.INDEX_SPIN_BACKGROUN_BUTTON, String.valueOf(iBotones));
+                LocalStorage.SetLocalData(MainActivity.this, LocalDictionary.BACKGROUND_BUTTONS, String.valueOf(color));
+                abre.setBackgroundResource(color);
+                estadistica.setBackgroundResource(color);
+                okColor.setBackgroundResource(color);
                 break;
         }
     }

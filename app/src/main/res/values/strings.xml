@@ -7,4 +7,6 @@
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
+    <string name="wellcome">Bienvenido, con esta aplicación podrás tener control de una puerta (donde se instaló el sistema) y saber cuantas personas entraron al lugar que escogiste.</string>
+    <string name="step_one">Para usar esta aplicación deberás de registrarte para tener acceso a sus funciones.</string>
 </resources>

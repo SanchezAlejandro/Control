@@ -27,24 +27,10 @@
             />
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Estadísticas"
-            android:id="@+id/txTitulo"
-            android:layout_centerHorizontal="true"
-            android:textColor="@color/blanco"
-            android:background="@drawable/hoja_fragmento"
-            android:textSize="45dp"
-            android:gravity="center"
-            android:layout_marginBottom="10dp"
-            android:elevation="4dp"
-            />
-
-        <TextView
+            android:layout_marginTop="8dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/txTipo"
-            android:layout_below="@+id/txTitulo"
             android:text="Tipo de gráfica:"
             android:gravity="center_horizontal"
             android:textSize="20dp"

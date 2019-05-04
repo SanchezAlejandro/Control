@@ -34,25 +34,11 @@
             android:visibility="invisible"
             ></WebView>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Control de puerta"
-            android:layout_centerHorizontal="true"
-            android:background="@drawable/hoja_fragmento"
-            android:gravity="center"
-            android:textColor="@color/blanco"
-            android:textSize="45dp"
-            android:layout_marginBottom="50dp"
-            android:id="@+id/textViewTituloControlDePuerta"
-            android:elevation="4dp"
-            />
-
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/relativeLayoutCerrado"
-            android:layout_below="@+id/textViewTituloControlDePuerta"
+            android:layout_centerInParent="true"
             >
 
             <ImageView
@@ -80,7 +66,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/relativeLayoutAbierto"
-            android:layout_below="@+id/textViewTituloControlDePuerta"
+            android:layout_centerInParent="true"
             android:visibility="invisible"
             >
 
@@ -109,30 +95,14 @@
             android:layout_height="wrap_content"
             android:textSize="50dp"
             android:layout_centerHorizontal="true"
-            android:id="@+id/botonAbrir"
-            android:text=" Abrir "
+            android:id="@+id/botonAbrirCerrar"
+            android:text="ABRIR"
             android:background="@drawable/ripple"
             android:textColor="@color/negro"
             android:layout_alignParentBottom="true"
             android:elevation="4dp"
             android:stateListAnimator="@drawable/animacionboton"
             android:layout_marginBottom="25dp"
-            />
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="50dp"
-            android:layout_centerHorizontal="true"
-            android:id="@+id/botonCerrar"
-            android:text=" Cerrar "
-            android:background="@drawable/ripple"
-            android:textColor="@color/negro"
-            android:layout_alignParentBottom="true"
-            android:layout_marginBottom="25dp"
-            android:elevation="4dp"
-            android:stateListAnimator="@drawable/animacionboton"
-            android:visibility="invisible"
             />
 
     </RelativeLayout>

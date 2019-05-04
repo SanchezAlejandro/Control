@@ -26,9 +26,11 @@ import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import java.util.Objects;
+
 public class AbreCierra extends AppCompatActivity implements View.OnClickListener {
 
-    Button abre, cierra;
+    Button abre;
     RelativeLayout imagenAbierto, imagenCerrado, todoAC;
     WebView u;
     ImageView ayudacontrol;
@@ -41,23 +43,30 @@ public class AbreCierra extends AppCompatActivity implements View.OnClickListene
 
         Toolbar bar = (Toolbar) findViewById(R.id.bar);
         setSupportActionBar(bar);
+        bar.setTitle("Control de puerta");
 
         todoAC = findViewById(R.id.todoAbreCierra);
-
-        abre = findViewById(R.id.botonAbrir);
-        cierra = findViewById(R.id.botonCerrar);
+        abre = findViewById(R.id.botonAbrirCerrar);
         imagenAbierto = findViewById(R.id.relativeLayoutAbierto);
         imagenCerrado = findViewById(R.id.relativeLayoutCerrado);
         u = findViewById(R.id.web);
         ayudacontrol = findViewById(R.id.ayudaControl);
 
         ayudacontrol.setOnClickListener(this);
-
         abre.setOnClickListener(this);
-        cierra.setOnClickListener(this);
 
-        fondoColor();
-        botonColor();
+        todoAC.setBackgroundColor(Integer.parseInt(LocalStorage.GetLocalData(AbreCierra.this, LocalDictionary.BACKGROUND)));
+        abre.setBackgroundResource(Integer.parseInt(LocalStorage.GetLocalData(AbreCierra.this, LocalDictionary.BACKGROUND_BUTTONS)));
+
+        ((AppCompatActivity) Objects.requireNonNull(AbreCierra.this)).setSupportActionBar(bar);
+        Objects.requireNonNull(((AppCompatActivity) AbreCierra.this).getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
+        Objects.requireNonNull(((AppCompatActivity) AbreCierra.this).getSupportActionBar()).setDisplayShowHomeEnabled(true);
+        bar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
     }
 
@@ -103,9 +112,6 @@ public class AbreCierra extends AppCompatActivity implements View.OnClickListene
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
-            case R.id.action_regresar:
-                finish();
-                break;
             case R.id.action_salir:
                 muestraDialog();
                 break;
@@ -117,146 +123,22 @@ public class AbreCierra extends AppCompatActivity implements View.OnClickListene
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-            case R.id.botonAbrir:
-                imagenAbierto.setVisibility(View.VISIBLE);
-                cierra.setVisibility(View.VISIBLE);
-                imagenCerrado.setVisibility(View.INVISIBLE);
-                abre.setVisibility(View.INVISIBLE);
-
-                Intent mi = new Intent(this, WebViewActivity.class);
-                startActivity(mi);
-
-                break;
-            case R.id.botonCerrar:
-                imagenAbierto.setVisibility(View.INVISIBLE);
-                cierra.setVisibility(View.INVISIBLE);
-                imagenCerrado.setVisibility(View.VISIBLE);
-                abre.setVisibility(View.VISIBLE);
-
-                Intent miC = new Intent(this, WebViewActivityCerrar.class);
-                startActivity(miC);
-
+            case R.id.botonAbrirCerrar:
+                if (abre.getText().toString().equalsIgnoreCase("ABRIR")) {
+                    abre.setText("CERRAR");
+                    imagenAbierto.setVisibility(View.VISIBLE);
+                    imagenCerrado.setVisibility(View.INVISIBLE);
+                    startActivity(new Intent(this, WebViewActivity.class));
+                } else {
+                    abre.setText("ABRIR");
+                    imagenAbierto.setVisibility(View.INVISIBLE);
+                    imagenCerrado.setVisibility(View.VISIBLE);
+                    startActivity(new Intent(this, WebViewActivityCerrar.class));
+                }
                 break;
             case R.id.ayudaControl:
-                Intent iac = new Intent(this, AyudaControl.class);
-                startActivity(iac);
+                startActivity(new Intent(this, AyudaControl.class));
                 break;
         }
-    }
-
-    public void botonColor() {
-        SharedPreferences preferencias = getSharedPreferences("misPreferencias", Context.MODE_PRIVATE);
-        int cb = preferencias.getInt("colorBotones", 4);
-
-        int a;
-        a = cb;
-
-        SharedPreferences.Editor editor = preferencias.edit();
-        editor.putInt("colorBotones", a);
-        editor.commit();
-
-        switch (cb) {
-            case 0:
-                abre.setBackgroundResource(R.drawable.ripple_amarillo);
-                cierra.setBackgroundResource(R.drawable.ripple_amarillo);
-                break;
-            case 1:
-                abre.setBackgroundResource(R.drawable.ripple_ambar);
-                cierra.setBackgroundResource(R.drawable.ripple_ambar);
-                break;
-            case 2:
-                abre.setBackgroundResource(R.drawable.ripple_azul);
-                cierra.setBackgroundResource(R.drawable.ripple_azul);
-                break;
-            case 3:
-                abre.setBackgroundResource(R.drawable.ripple_azul_gris);
-                cierra.setBackgroundResource(R.drawable.ripple_azul_gris);
-                break;
-            case 4:
-                abre.setBackgroundResource(R.drawable.ripple);
-                cierra.setBackgroundResource(R.drawable.ripple);
-                break;
-            case 5:
-                abre.setBackgroundResource(R.drawable.ripple_gris);
-                cierra.setBackgroundResource(R.drawable.ripple_gris);
-                break;
-            case 6:
-                abre.setBackgroundResource(R.drawable.ripple_indigo);
-                cierra.setBackgroundResource(R.drawable.ripple_indigo);
-                break;
-            case 7:
-                abre.setBackgroundResource(R.drawable.ripple_lima);
-                cierra.setBackgroundResource(R.drawable.ripple_lima);
-                break;
-            case 8:
-                abre.setBackgroundResource(R.drawable.ripple_purpura);
-                cierra.setBackgroundResource(R.drawable.ripple_purpura);
-                break;
-            case 9:
-                abre.setBackgroundResource(R.drawable.ripple_rosa);
-                cierra.setBackgroundResource(R.drawable.ripple_rosa);
-                break;
-            case 10:
-                abre.setBackgroundResource(R.drawable.ripple_verdeazul);
-                cierra.setBackgroundResource(R.drawable.ripple_verdeazul);
-                break;
-            case 11:
-                abre.setBackgroundResource(R.drawable.ripple_verdementa);
-                cierra.setBackgroundResource(R.drawable.ripple_verdementa);
-                break;
-            case 12:
-                abre.setBackgroundResource(R.drawable.ripple_verde);
-                cierra.setBackgroundResource(R.drawable.ripple_verde);
-                break;
-        }
-    }
-
-    @SuppressLint("ResourceType")
-    public void fondoColor() {
-        SharedPreferences preferencias = getSharedPreferences("misPreferencias", Context.MODE_PRIVATE);
-        int cb = preferencias.getInt("color", 4);
-
-        switch (cb) {
-            case 0:
-                cb = Color.parseColor(getResources().getString(R.color.amarilloPastel));
-                break;
-            case 1:
-                cb = Color.parseColor(getResources().getString(R.color.ambarPastel));
-                break;
-            case 2:
-                cb = Color.parseColor(getResources().getString(R.color.azulPastel));
-                break;
-            case 3:
-                cb = Color.parseColor(getResources().getString(R.color.azulGris));
-                break;
-            case 4:
-                cb = Color.parseColor(getResources().getString(R.color.blanco));
-                break;
-            case 5:
-                cb = Color.parseColor(getResources().getString(R.color.gris));
-                break;
-            case 6:
-                cb = Color.parseColor(getResources().getString(R.color.indigoPastel));
-                break;
-            case 7:
-                cb = Color.parseColor(getResources().getString(R.color.limaPastel));
-                break;
-            case 8:
-                cb = Color.parseColor(getResources().getString(R.color.purpuraPastel));
-                break;
-            case 9:
-                cb = Color.parseColor(getResources().getString(R.color.rosaPastel));
-                break;
-            case 10:
-                cb = Color.parseColor(getResources().getString(R.color.verdeAzuladoPastel));
-                break;
-            case 11:
-                cb = Color.parseColor(getResources().getString(R.color.verdePastelDos));
-                break;
-            case 12:
-                cb = Color.parseColor(getResources().getString(R.color.verdePastel));
-                break;
-        }
-        todoAC.setBackgroundColor(cb);
     }
 }

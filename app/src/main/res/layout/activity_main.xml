@@ -9,7 +9,9 @@
 
     <include layout="@layout/bar"/>
 
-    <RelativeLayout
+    <LinearLayout
+        android:elevation="4dp"
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/RelativeLayoutMensajeDeLogin"
@@ -21,10 +23,11 @@
         >
 
         <TextView
+            android:layout_margin="15dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/TextViewMensajeDeLogin"
-            android:text="Para usar esta aplicación deberás de registrarte para tener acceso a sus funciones."
+            android:text="@string/step_one"
             android:textSize="20dp"
             android:textColor="@color/negro"
             android:gravity="center"
@@ -36,37 +39,27 @@
             android:orientation="horizontal"
             android:id="@+id/ButtonOkeiMensajeDeLogin"
             android:layout_below="@+id/TextViewMensajeDeLogin"
-            android:layout_centerHorizontal="true"
-            android:background="@drawable/botonnormal"
-            android:layout_marginTop="6dp"
-            android:layout_marginBottom="6dp"
+            android:layout_gravity="right"
+            android:layout_marginBottom="8dp"
+            android:layout_marginRight="8dp"
             >
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            android:layout_centerHorizontal="true"
-
-            android:text="   OK!"
-            android:textSize="20dp"
-            android:textColor="@color/blanco"
-            android:layout_marginTop="6dp"
-            android:layout_marginBottom="6dp"
-            android:elevation="4dp"
-            />
-
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:src="@drawable/ok"
-                android:layout_gravity="center"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="   OK!"
+                android:textSize="20dp"
+                android:textColor="@color/colorPrimary"
                 />
+
         </LinearLayout>
 
-    </RelativeLayout>
+    </LinearLayout>
 
-    <RelativeLayout
+    <LinearLayout
+        android:orientation="vertical"
+        android:elevation="4dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/RelativeLayoutMensajeDeBienvenida"
@@ -78,10 +71,11 @@
         >
 
         <TextView
+            android:layout_margin="15dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/TextViewMensajeDeBienvenida"
-            android:text="Bienvenido, con esta aplicación podrás tener control de una puerta (donde se instaló el sistema) y saber cuantas personas entraron al lugar que escogiste."
+            android:text="@string/wellcome"
             android:textSize="20dp"
             android:textColor="@color/negro"
             android:gravity="center"
@@ -93,42 +87,26 @@
             android:orientation="horizontal"
             android:id="@+id/ButtonSiguienteMensajeDeBienvenida"
             android:layout_below="@+id/TextViewMensajeDeBienvenida"
-            android:layout_centerHorizontal="true"
-            android:background="@drawable/botonnormal"
-            android:layout_marginTop="6dp"
-            android:layout_marginBottom="6dp"
+            android:layout_gravity="right"
+            android:layout_marginRight="8dp"
             >
 
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            android:layout_centerHorizontal="true"
-
-            android:text="  Siguiente"
-            android:textColor="@color/blanco"
-            android:textSize="20dp"
-            android:gravity="center"
-            android:layout_marginTop="6dp"
-            android:layout_marginBottom="6dp"
-            android:elevation="4dp"
-            />
-
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:src="@drawable/siguiente"
-                android:layout_gravity="center"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="  SIGUIENTE"
+                android:textColor="@color/colorPrimary"
+                android:textSize="20dp"
+                android:gravity="center"
+                android:layout_marginBottom="8dp"
                 />
+
         </LinearLayout>
 
-    </RelativeLayout>
+    </LinearLayout>
 
-
-
-
-
+    <!-- Login -->
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -158,15 +136,16 @@
             android:layout_height="wrap_content"
             >
 
-            <RelativeLayout
+            <LinearLayout
+                android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 >
 
-                <RelativeLayout
+                <LinearLayout
+                    android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
                     >
 
                     <TextView
@@ -174,7 +153,6 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:id="@+id/textViewBienvenidoRegistro"
-                        android:text="Bienvenido. Por favor registrate."
                         android:textColor="@color/blanco"
                         android:textSize="24dp"
                         android:layout_marginTop="16dp"
@@ -183,84 +161,119 @@
                         android:layout_marginLeft="20dp"
                         />
 
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:id="@+id/editTextUsuarioRegistro"
-                        android:layout_below="@id/textViewBienvenidoRegistro"
-                        android:textColor="@color/blanco"
-                        android:hint="Ingresa nombre de usuario"
-                        android:textColorHint="@color/colorSecundario"
-                        android:textSize="20dp"
+                    <LinearLayout
                         android:background="@drawable/fondo_usuario"
-                        android:drawableLeft="@drawable/usuario"
-                        android:drawablePadding="5dp"
-                        android:layout_marginRight="20dp"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginBottom="5dp"
-                        />
-
-                    <EditText
+                        android:orientation="horizontal"
                         android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:id="@+id/editTextContraseñaRegistro"
-                        android:layout_below="@id/editTextUsuarioRegistro"
-                        android:hint="Ingresa contraseña"
-                        android:textColor="@color/blanco"
-                        android:password="true"
-                        android:textColorHint="@color/colorSecundario"
-                        android:textSize="20dp"
-                        android:drawableLeft="@drawable/password"
-                        android:drawablePadding="5dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginBottom="5dp">
+
+                        <ImageView
+                            android:layout_gravity="center_vertical"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:src="@drawable/usuario"
+                            android:layout_marginLeft="4dp"
+                            android:layout_marginRight="4dp"/>
+
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:id="@+id/editTextUsuarioRegistro"
+                            android:textColor="@color/blanco"
+                            android:hint="Ingresa nombre de usuario"
+                            android:textColorHint="#A6FFFFFF"
+                            android:textSize="20dp"
+                            android:background="@android:color/transparent" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_marginLeft="20dp"
                         android:layout_marginRight="20dp"
                         android:layout_marginBottom="5dp"
-                        android:background="@drawable/fondo_usuario"
-                        />
+                        android:background="@drawable/fondo_usuario">
 
-                    <EditText
+                        <ImageView
+                            android:layout_gravity="center_vertical"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:src="@drawable/password"
+                            android:layout_marginLeft="4dp"
+                            android:layout_marginRight="4dp"/>
+
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:id="@+id/editTextContraseñaRegistro"
+                            android:hint="Ingresa contraseña"
+                            android:textColor="@color/blanco"
+                            android:password="true"
+                            android:textColorHint="#A6FFFFFF"
+                            android:textSize="20dp"
+                            android:background="@android:color/transparent" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="horizontal"
                         android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:id="@+id/editTextCorreoRegistro"
-                        android:layout_below="@id/editTextContraseñaRegistro"
-                        android:textColor="@color/blanco"
-                        android:hint="Ingresa tu correo"
-                        android:textColorHint="@color/colorSecundario"
-                        android:textSize="20dp"
-                        android:background="@drawable/fondo_contrasenia"
-                        android:drawableLeft="@drawable/mail"
-                        android:drawablePadding="5dp"
+                        android:layout_height="wrap_content"
                         android:layout_marginRight="20dp"
                         android:layout_marginLeft="20dp"
+                        android:background="@drawable/fondo_contrasenia">
 
-                        />
+                        <ImageView
+                            android:layout_gravity="center_vertical"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:src="@drawable/mail"
+                            android:layout_marginLeft="4dp"
+                            android:layout_marginRight="4dp"/>
+
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:id="@+id/editTextCorreoRegistro"
+                            android:textColor="@color/blanco"
+                            android:hint="Ingresa tu correo"
+                            android:textColorHint="#A6FFFFFF"
+                            android:textSize="20dp"
+                            android:background="@android:color/transparent" />
+
+                    </LinearLayout>
 
                     <Button
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
                         android:id="@+id/ButtonRegistro"
                         android:text="Registrarse"
-                        android:layout_below="@id/editTextCorreoRegistro"
                         android:gravity="center"
                         android:layout_marginTop="25dp"
                         android:layout_marginRight="20dp"
                         android:layout_marginLeft="20dp"
                         android:layout_marginBottom="16dp"
-                        android:textColor="@color/blanco"
+                        android:textColor="@color/colorPrimary"
                         android:textSize="20dp"
                         android:background="@drawable/fondo_boton_login"
+                        android:backgroundTint="@color/blanco"
                         android:elevation="4dp"
                         />
 
-                </RelativeLayout>
+                </LinearLayout>
 
-            </RelativeLayout>
+            </LinearLayout>
 
         </ScrollView>
 
     </RelativeLayout>
 
-
+    <!-- sing up -->
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -290,10 +303,10 @@
             android:layout_height="wrap_content"
             >
 
-            <RelativeLayout
+            <LinearLayout
+                android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
                 >
 
                 <TextView
@@ -310,39 +323,63 @@
                     android:layout_marginLeft="20dp"
                     />
 
-                <EditText
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:id="@+id/editTextUsuario"
-                    android:layout_below="@id/textViewBienvenido"
-                    android:textColor="@color/blanco"
-                    android:hint="Ingresa usuario"
-                    android:textColorHint="#A6FFFFFF"
-                    android:textSize="20dp"
-                    android:background="@drawable/fondo_usuario"
-                    android:drawableLeft="@drawable/usuario"
-                    android:drawablePadding="5dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginRight="20dp"
                     android:layout_marginLeft="20dp"
                     android:layout_marginBottom="5dp"
-                    />
+                    android:background="@drawable/fondo_usuario" >
 
-                <EditText
+                    <ImageView
+                        android:layout_gravity="center_vertical"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:src="@drawable/usuario"
+                        android:layout_marginLeft="4dp"
+                        android:layout_marginRight="4dp"/>
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:id="@+id/editTextUsuario"
+                        android:textColor="@color/blanco"
+                        android:hint="Ingresa usuario"
+                        android:textColorHint="#A6FFFFFF"
+                        android:textSize="20dp"
+                        android:background="@android:color/transparent"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:id="@+id/editTextContraseña"
-                    android:layout_below="@id/editTextUsuario"
-                    android:hint="Ingresa contraseña"
-                    android:password="true"
-                    android:textColor="@color/blanco"
-                    android:textColorHint="#A6FFFFFF"
-                    android:textSize="20dp"
-                    android:drawableLeft="@drawable/password"
-                    android:drawablePadding="5dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginRight="20dp"
                     android:layout_marginLeft="20dp"
-                    android:background="@drawable/fondo_contrasenia"
-                    />
+                    android:background="@drawable/fondo_contrasenia">
+
+                    <ImageView
+                        android:layout_gravity="center_vertical"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:src="@drawable/password"
+                        android:layout_marginLeft="4dp"
+                        android:layout_marginRight="4dp"/>
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:id="@+id/editTextContraseña"
+                        android:layout_below="@id/editTextUsuario"
+                        android:hint="Ingresa contraseña"
+                        android:password="true"
+                        android:textColor="@color/blanco"
+                        android:textColorHint="#A6FFFFFF"
+                        android:textSize="20dp"
+                        android:background="@android:color/transparent"/>
+
+                </LinearLayout>
 
                 <TextView
                     android:layout_width="match_parent"
@@ -370,18 +407,19 @@
                     android:layout_marginRight="20dp"
                     android:layout_marginLeft="20dp"
                     android:layout_marginBottom="16dp"
-                    android:textColor="@color/blanco"
+                    android:textColor="@color/colorPrimary"
                     android:textSize="20dp"
                     android:background="@drawable/fondo_boton_login"
+                    android:backgroundTint="@color/blanco"
                     android:elevation="4dp"
                     />
-            </RelativeLayout>
+            </LinearLayout>
 
         </ScrollView>
 
     </RelativeLayout>
 
-
+    <!-- menu overflow -->
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -391,9 +429,7 @@
         android:layout_marginTop="?attr/actionBarSize"
         android:layout_marginLeft="50dp"
         android:elevation="4dp"
-
         android:visibility="invisible"
-
         >
 
         <TextView
@@ -494,7 +530,7 @@
     </RelativeLayout>
 
 
-
+    <!-- tour -->
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -502,12 +538,12 @@
         android:background="#BF000000"
         android:elevation="8dp"
         android:layout_marginTop="?attr/actionBarSize"
-
-android:visibility="invisible"
+        android:visibility="invisible"
         >
 
 
-        <RelativeLayout
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/RelativeLayoutMensajeDeBotones"
@@ -515,7 +551,8 @@ android:visibility="invisible"
             android:background="@drawable/fondo_mensaje_bienvenida"
             android:layout_marginRight="20dp"
             android:layout_marginLeft="20dp"
-            android:elevation="8dp"
+            android:layout_marginBottom="4dp"
+            android:elevation="4dp"
             android:visibility="invisible"
             >
 
@@ -527,8 +564,7 @@ android:visibility="invisible"
                 android:textSize="20dp"
                 android:textColor="@color/negro"
                 android:gravity="center"
-                android:layout_marginTop="6dp"
-                android:layout_marginBottom="6dp"
+                android:layout_margin="15dp"
                 />
 
             <LinearLayout
@@ -537,44 +573,34 @@ android:visibility="invisible"
                 android:orientation="horizontal"
                 android:id="@+id/ButtonSiguienteMensajeDeBotones"
                 android:layout_below="@+id/TextViewMensajeDeBotones"
-                android:layout_centerHorizontal="true"
-                android:background="@drawable/botonnormal"
-                android:layout_marginTop="6dp"
-                android:layout_marginBottom="6dp"
+                android:layout_gravity="right"
+                android:layout_marginBottom="8dp"
+                android:layout_marginRight="8dp"
                 >
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" Siguiente"
+                    android:textSize="20dp"
+                    android:textColor="@color/colorPrimary"
+                    android:elevation="4dp"
+                    />
 
-                android:layout_centerHorizontal="true"
+            </LinearLayout>
 
-                android:text=" Siguiente"
-                android:textSize="20dp"
-                android:textColor="@color/blanco"
-                android:layout_marginTop="6dp"
-                android:layout_marginBottom="6dp"
-                android:elevation="4dp"
-                />
-
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:src="@drawable/siguiente"
-                android:layout_gravity="center"
-                />
         </LinearLayout>
 
-        </RelativeLayout>
-
-        <RelativeLayout
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/RelativeLayoutMensajeDeSalir"
             android:background="@drawable/fondo_mensaje_bienvenida"
             android:layout_marginRight="20dp"
             android:layout_marginLeft="20dp"
-            android:elevation="8dp"
+            android:layout_marginBottom="4dp"
+            android:elevation="4dp"
             android:visibility="invisible"
             >
 
@@ -586,8 +612,7 @@ android:visibility="invisible"
                 android:textSize="20dp"
                 android:textColor="@color/negro"
                 android:gravity="center"
-                android:layout_marginTop="6dp"
-                android:layout_marginBottom="6dp"
+                android:layout_margin="15dp"
                 />
 
             <LinearLayout
@@ -596,37 +621,25 @@ android:visibility="invisible"
                 android:orientation="horizontal"
                 android:id="@+id/ButtonSiguienteMensajeDeSalir"
                 android:layout_below="@+id/TextViewMensajeDeSalir"
-                android:layout_centerHorizontal="true"
-                android:background="@drawable/botonnormal"
-                android:layout_marginTop="6dp"
-                android:layout_marginBottom="6dp"
+                android:layout_gravity="right"
+                android:layout_marginBottom="8dp"
+                android:layout_marginRight="8dp"
                 >
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-
-                android:layout_centerHorizontal="true"
-
-                android:text=" Siguiente"
-                android:textSize="20dp"
-                android:textColor="@color/blanco"
-                android:layout_marginTop="6dp"
-                android:layout_marginBottom="6dp"
-                android:elevation="4dp"
-                />
-
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:src="@drawable/siguiente"
-                    android:layout_gravity="center"
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" Siguiente"
+                    android:textSize="20dp"
+                    android:textColor="@color/colorPrimary"
                     />
+
             </LinearLayout>
 
-        </RelativeLayout>
+        </LinearLayout>
 
-        <RelativeLayout
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/RelativeLayoutMensajeDeAjustes"
@@ -646,6 +659,7 @@ android:visibility="invisible"
                 android:textSize="20dp"
                 android:textColor="@color/negro"
                 android:gravity="center"
+                android:layout_margin="15dp"
                 />
 
             <LinearLayout
@@ -654,57 +668,47 @@ android:visibility="invisible"
                 android:orientation="horizontal"
                 android:id="@+id/ButtonSiguienteMensajeDeAjustes"
                 android:layout_below="@+id/TextViewMensajeDeAjustes"
-                android:layout_centerHorizontal="true"
-                android:background="@drawable/botonnormal"
-                android:layout_marginTop="6dp"
-                android:layout_marginBottom="6dp"
+                android:layout_gravity="right"
+                android:layout_marginBottom="8dp"
+                android:layout_marginRight="8dp"
                 >
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" Listo!"
+                    android:textSize="20dp"
+                    android:textColor="@color/colorPrimary"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginBottom="6dp"
+                    android:elevation="4dp"
+                    />
 
-                android:layout_centerHorizontal="true"
+            </LinearLayout>
 
-                android:text=" Listo!"
-                android:textSize="20dp"
-                android:textColor="@color/blanco"
-                android:layout_marginTop="6dp"
-                android:layout_marginBottom="6dp"
-                android:elevation="4dp"
-                />
-
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:src="@drawable/ok"
-                android:layout_gravity="center"
-                />
         </LinearLayout>
-
-        </RelativeLayout>
 
     </RelativeLayout>
 
+
+    <!-- Botones -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:layout_marginTop="?attr/actionBarSize"
         android:id="@+id/LinearLayoutBotones"
-android:visibility="invisible"
+        android:visibility="invisible"
         >
 
-
-
-        <LinearLayout
+        <!-- <LinearLayout
             android:layout_weight="2"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:orientation="vertical"
             >
 
-        </LinearLayout>
+        </LinearLayout> -->
 
         <LinearLayout
             android:layout_weight="1"
@@ -723,17 +727,18 @@ android:visibility="invisible"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="5dp"
-                android:layout_marginRight="5dp"
+                android:layout_marginRight="10dp"
                 android:elevation="4dp"
                 >
-                <ImageView
 
+                <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:src="@drawable/abierto"
                     android:id="@+id/BotonAbre"
                     android:layout_gravity="center"
                     />
+
                 <TextView
                     android:layout_marginLeft="15dp"
                     android:layout_width="wrap_content"
@@ -755,12 +760,13 @@ android:visibility="invisible"
                 android:orientation="horizontal"
                 android:id="@+id/llEst"
                 android:background="@drawable/ripple"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="10dp"
                 android:layout_marginRight="10dp"
                 android:elevation="4dp"
                 >
+
                 <ImageView
                     android:layout_marginLeft="5dp"
                     android:layout_width="40dp"
@@ -769,7 +775,7 @@ android:visibility="invisible"
                     android:id="@+id/BotonEstadisticas"
                     android:layout_gravity="center"
                     />
-                />
+
                 <TextView
                     android:layout_marginLeft="15dp"
                     android:layout_width="wrap_content"
@@ -799,6 +805,7 @@ android:visibility="invisible"
                 android:visibility="invisible"
                 >
             </LinearLayout>
+
             <LinearLayout
                 android:layout_weight="1"
                 android:layout_width="fill_parent"
@@ -815,44 +822,7 @@ android:visibility="invisible"
                 >
             </LinearLayout>
 
-<!--
-            <LinearLayout
-                android:layout_weight="1"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:orientation="horizontal"
-                android:id="@+id/llAyu"
-                android:background="@drawable/ripple"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="5dp"
-                android:layout_marginRight="10dp"
-                android:elevation="4dp"
-                >
-                <ImageView
-                    android:layout_marginLeft="5dp"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:src="@drawable/ayudadota"
-                    android:id="@+id/BotonAyuda"
-                    android:layout_gravity="center"
-                    />
-                <TextView
-                    android:layout_marginLeft="15dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/textviewTituloAyudaBotones"
-                    android:text="Ayuda"
-                    android:layout_gravity="center_vertical"
-                    android:textColor="@color/negro"
-                    android:textSize="24dp"
-                    android:gravity="center"
-                    />
-
-            </LinearLayout>
--->
         </LinearLayout>
-
 
         <LinearLayout
             android:layout_weight="1"
@@ -860,11 +830,12 @@ android:visibility="invisible"
             android:layout_height="fill_parent"
             android:orientation="vertical"
             >
+
             <RelativeLayout
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-
                 >
+
                 <ImageView
                     android:layout_width="30dp"
                     android:layout_height="30dp"
@@ -881,7 +852,5 @@ android:visibility="invisible"
         </LinearLayout>
 
     </LinearLayout>
-
-
 
 </RelativeLayout>

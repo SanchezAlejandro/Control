@@ -19,6 +19,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.Toolbar;
 
+import java.util.Objects;
 import java.util.Properties;
 import java.util.concurrent.Delayed;
 
@@ -48,17 +49,22 @@ public class RecuperarCuenta extends AppCompatActivity implements View.OnClickLi
 
         android.support.v7.widget.Toolbar bar = (android.support.v7.widget.Toolbar) findViewById(R.id.bar);
         setSupportActionBar(bar);
+        bar.setTitle("Recuperar cuenta");
 
         correoR = findViewById(R.id.editTextCorreo);
         enviarCorreo = findViewById(R.id.ButtonEnviarCorreo);
 
         enviarCorreo.setOnClickListener(this);
-    }
 
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_otras_actividades, menu);
-        return true;
+        ((AppCompatActivity) Objects.requireNonNull(RecuperarCuenta.this)).setSupportActionBar(bar);
+        Objects.requireNonNull(((AppCompatActivity) RecuperarCuenta.this).getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
+        Objects.requireNonNull(((AppCompatActivity) RecuperarCuenta.this).getSupportActionBar()).setDisplayShowHomeEnabled(true);
+        bar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     public void muestraDialog() {
@@ -131,9 +137,6 @@ public class RecuperarCuenta extends AppCompatActivity implements View.OnClickLi
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
-            case R.id.action_regresar:
-                finish();
-                break;
             case R.id.action_salir:
                 muestraDialog();
                 break;
