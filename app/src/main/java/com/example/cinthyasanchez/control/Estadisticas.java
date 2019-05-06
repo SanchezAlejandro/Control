@@ -19,13 +19,12 @@ import android.widget.TextView;
 
 import java.util.Objects;
 
-public class Estadisticas extends AppCompatActivity implements View.OnClickListener{
+public class Estadisticas extends AppCompatActivity {
 
     RadioButton barras, histograma;
     TextView aqui;
     WebView graficas;
     RelativeLayout gBarras, gPoligono, todoE;
-    ImageView ayudaEst;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,13 +40,11 @@ public class Estadisticas extends AppCompatActivity implements View.OnClickListe
         histograma = findViewById(R.id.radioButtonGraficaHistograma);
         gBarras = findViewById(R.id.RelativeLayoutGraficaBarras);
         gPoligono = findViewById(R.id.RelativeLayoutGraficaHistograma);
-        ayudaEst = findViewById(R.id.ayudaEstadisticas);
         graficas = findViewById(R.id.webViews);
         aqui = findViewById(R.id.tvaqui);
         todoE = findViewById(R.id.todoEstadisticas);
         todoE.setBackgroundColor(Integer.parseInt(LocalStorage.GetLocalData(Estadisticas.this, LocalDictionary.BACKGROUND)));
 
-        ayudaEst.setOnClickListener(this);
         barras.setOnClickListener(new View.OnClickListener() {
             @SuppressLint("ResourceType")
             @Override
@@ -93,52 +90,18 @@ public class Estadisticas extends AppCompatActivity implements View.OnClickListe
         overridePendingTransition(R.anim.right,R.anim.right_off);
     }
 
-    public void muestraDialog() {
-        Dialog dialog = null;
-        dialog = new Dialog(this,R.style.Theme_Dialog_Translucent);
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        dialog.setCancelable(false);
-        dialog.setContentView(R.layout.dialog_cerrar_app);
-
-        ((TextView) dialog.findViewById(R.id.text_cerrar_sesion)).setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View view) {
-                finishAffinity();
-            }
-        });
-
-        final Dialog finalDialog2 = dialog;
-        ((TextView) dialog.findViewById(R.id.text_cancelar)).setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View view) {
-                finalDialog2.dismiss();
-
-            }
-        });
-
-        dialog.show();
-    }
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
             case R.id.action_salir:
-                muestraDialog();
+                LocalGeneral localGeneral = new LocalGeneral(this);
+                localGeneral.muestraDialog(true);
+                break;
+            case R.id.help:
+                startActivity(new Intent(this, AyudaEstadistica.class));
                 break;
         }
 
         return super.onOptionsItemSelected(item);
-    }
-
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()){
-            case R.id.ayudaEstadisticas:
-                Intent iae = new Intent(this, AyudaEstadistica.class);
-                startActivity(iae);
-                break;
-        }
     }
 }

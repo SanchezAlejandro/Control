@@ -9,4 +9,6 @@
     <string name="action_settings">Settings</string>
     <string name="wellcome">Bienvenido, con esta aplicación podrás tener control de una puerta (donde se instaló el sistema) y saber cuantas personas entraron al lugar que escogiste.</string>
     <string name="step_one">Para usar esta aplicación deberás de registrarte para tener acceso a sus funciones.</string>
+    <string name="step_two">Estos botones corresponden a las funciones de la aplicación.</string>
+    <string name="step_three">En el icono de 3 puntitos puedes encontrar algunos a justes de apaciencia de la aplicación, la opción de ayuda y, la opción de cerrar sesión.</string>
 </resources>

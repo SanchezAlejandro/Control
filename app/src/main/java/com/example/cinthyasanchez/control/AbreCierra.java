@@ -21,10 +21,10 @@ import java.util.Objects;
 public class AbreCierra extends AppCompatActivity implements View.OnClickListener {
 
     Button abre;
-    RelativeLayout imagenAbierto, imagenCerrado, todoAC;
+    RelativeLayout imagenCerrado, todoAC;
     WebView u;
-    ImageView ayudacontrol;
-    Spinner sAC;
+    ImageView candado;
+    TextView text;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,12 +38,11 @@ public class AbreCierra extends AppCompatActivity implements View.OnClickListene
 
         todoAC = findViewById(R.id.todoAbreCierra);
         abre = findViewById(R.id.botonAbrirCerrar);
-        imagenAbierto = findViewById(R.id.relativeLayoutAbierto);
         imagenCerrado = findViewById(R.id.relativeLayoutCerrado);
         u = findViewById(R.id.web);
-        ayudacontrol = findViewById(R.id.ayudaControl);
+        candado = findViewById(R.id.imagencerrado);
+        text = findViewById(R.id.textViewCerrado);
 
-        ayudacontrol.setOnClickListener(this);
         abre.setOnClickListener(this);
 
         todoAC.setBackgroundColor(Integer.parseInt(LocalStorage.GetLocalData(AbreCierra.this, LocalDictionary.BACKGROUND)));
@@ -75,39 +74,15 @@ public class AbreCierra extends AppCompatActivity implements View.OnClickListene
         overridePendingTransition(R.anim.right,R.anim.right_off);
     }
 
-    public void muestraDialog() {
-        Dialog dialog = null;
-        dialog = new Dialog(this,R.style.Theme_Dialog_Translucent);
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        dialog.setCancelable(false);
-        dialog.setContentView(R.layout.dialog_cerrar_app);
-
-        ((TextView) dialog.findViewById(R.id.text_cerrar_sesion)).setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View view) {
-                finishAffinity();
-            }
-        });
-
-        final Dialog finalDialog2 = dialog;
-        ((TextView) dialog.findViewById(R.id.text_cancelar)).setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View view) {
-                finalDialog2.dismiss();
-
-            }
-        });
-
-        dialog.show();
-    }
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
             case R.id.action_salir:
-                muestraDialog();
+                LocalGeneral localGeneral = new LocalGeneral(this);
+                localGeneral.muestraDialog(true);
+                break;
+            case R.id.help:
+                startActivity(new Intent(this, AyudaControl.class));
                 break;
         }
 
@@ -120,18 +95,15 @@ public class AbreCierra extends AppCompatActivity implements View.OnClickListene
             case R.id.botonAbrirCerrar:
                 if (abre.getText().toString().equalsIgnoreCase("ABRIR")) {
                     abre.setText("CERRAR");
-                    imagenAbierto.setVisibility(View.VISIBLE);
-                    imagenCerrado.setVisibility(View.INVISIBLE);
+                    candado.setImageResource(R.drawable.abierto);
+                    text.setText("Abierto");
                     startActivity(new Intent(this, WebViewActivity.class));
                 } else {
                     abre.setText("ABRIR");
-                    imagenAbierto.setVisibility(View.INVISIBLE);
-                    imagenCerrado.setVisibility(View.VISIBLE);
+                    candado.setImageResource(R.drawable.cerrado);
+                    text.setText("Cerrado");
                     startActivity(new Intent(this, WebViewActivityCerrar.class));
                 }
-                break;
-            case R.id.ayudaControl:
-                startActivity(new Intent(this, AyudaControl.class));
                 break;
         }
     }

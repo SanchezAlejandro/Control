@@ -44,7 +44,7 @@ public class AyudaControl extends AppCompatActivity {
 
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_otras_actividades, menu);
+        getMenuInflater().inflate(R.menu.opciones_logout, menu);
         return true;
     }
 
@@ -54,39 +54,12 @@ public class AyudaControl extends AppCompatActivity {
         overridePendingTransition(R.anim.right,R.anim.right_off);
     }
 
-    public void muestraDialog() {
-        Dialog dialog = null;
-        dialog = new Dialog(this,R.style.Theme_Dialog_Translucent);
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        dialog.setCancelable(false);
-        dialog.setContentView(R.layout.dialog_cerrar_app);
-
-        ((TextView) dialog.findViewById(R.id.text_cerrar_sesion)).setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View view) {
-                finishAffinity();
-            }
-        });
-
-        final Dialog finalDialog2 = dialog;
-        ((TextView) dialog.findViewById(R.id.text_cancelar)).setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View view) {
-                finalDialog2.dismiss();
-
-            }
-        });
-
-        dialog.show();
-    }
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
-            case R.id.action_salir:
-                muestraDialog();
+            case R.id.salir:
+                LocalGeneral localGeneral = new LocalGeneral(this);
+                localGeneral.muestraDialog(true);
         }
 
         return super.onOptionsItemSelected(item);

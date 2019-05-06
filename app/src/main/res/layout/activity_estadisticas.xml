@@ -15,17 +15,6 @@
         android:layout_marginTop="?attr/actionBarSize"
         >
 
-        <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentRight="true"
-            android:layout_margin="10dp"
-            android:src="@drawable/ayudadota"
-            android:id="@+id/ayudaEstadisticas"
-            android:elevation="4dp"
-            />
-
         <TextView
             android:layout_marginTop="8dp"
             android:layout_width="match_parent"

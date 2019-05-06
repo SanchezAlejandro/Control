@@ -3,6 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
+        android:title="Ayuda"
+        android:id="@+id/help"
+        app:showAsAction="never"
+        />
+
+    <item
         android:id="@+id/action_salir"
         android:orderInCategory="100"
         android:title="Cerrar sesión"

@@ -67,7 +67,7 @@
         android:background="@drawable/fondo_mensaje_bienvenida"
         android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp"
-        android:visibility="invisible"
+
         >
 
         <TextView
@@ -121,8 +121,7 @@
             android:layout_height="match_parent"
             >
 
-            <LinearLayout
-                android:orientation="vertical"
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 >
@@ -140,8 +139,9 @@
                     android:gravity="center"
                     />
 
-                <LinearLayout
-                    android:orientation="vertical"
+                <RelativeLayout
+                    android:id="@+id/ll_registrer"
+                    android:layout_below="@+id/textViewtituloRegistrarse"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     >
@@ -160,6 +160,8 @@
                         />
 
                     <LinearLayout
+                        android:id="@+id/ll_user_registrer"
+                        android:layout_below="@+id/textViewBienvenidoRegistro"
                         android:background="@drawable/fondo_usuario"
                         android:orientation="horizontal"
                         android:layout_width="match_parent"
@@ -189,6 +191,8 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/ll_password_registrer"
+                        android:layout_below="@+id/ll_user_registrer"
                         android:orientation="horizontal"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -219,6 +223,8 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/ll_email_registrer"
+                        android:layout_below="@+id/ll_password_registrer"
                         android:orientation="horizontal"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -247,6 +253,7 @@
                     </LinearLayout>
 
                     <Button
+                        android:layout_below="@+id/ll_email_registrer"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
                         android:id="@+id/ButtonRegistro"
@@ -263,9 +270,28 @@
                         android:elevation="4dp"
                         />
 
-                </LinearLayout>
+                    <RelativeLayout
+                        android:id="@+id/relativelayout_check_registrer"
+                        android:layout_below="@+id/ll_email_registrer"
+                        android:layout_centerHorizontal="true"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:background="@drawable/sucessfull"
+                        android:backgroundTint="@color/verde_dos"
+                        android:visibility="invisible"
+                        >
 
-            </LinearLayout>
+                        <ImageView
+                            android:background="@drawable/ic_check"
+                            android:backgroundTint="#FFFFFF"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" />
+
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+            </RelativeLayout>
 
         </ScrollView>
 
@@ -278,7 +304,7 @@
         android:layout_height="match_parent"
         android:id="@+id/relativeLayoutLogin"
         android:background="@color/colorPrimary"
-
+        android:visibility="invisible"
         >
 
         <ScrollView
@@ -286,8 +312,8 @@
             android:layout_height="match_parent"
             >
 
-            <LinearLayout
-                android:orientation="vertical"
+            <RelativeLayout
+                android:layout_gravity="center_horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 >
@@ -306,6 +332,7 @@
                     />
 
                 <TextView
+                    android:layout_below="@+id/textViewtituloLogin"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
@@ -320,6 +347,8 @@
                     />
 
                 <LinearLayout
+                    android:id="@+id/ll_user"
+                    android:layout_below="@+id/textViewBienvenido"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="20dp"
@@ -338,6 +367,7 @@
                     <EditText
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
+                        android:layout_marginRight="6dp"
                         android:id="@+id/editTextUsuario"
                         android:textColor="@color/blanco"
                         android:hint="Ingresa usuario"
@@ -348,6 +378,8 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/ll_password"
+                    android:layout_below="@+id/ll_user"
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -367,6 +399,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
                         android:id="@+id/editTextContraseña"
+                        android:layout_marginRight="6dp"
                         android:layout_below="@id/editTextUsuario"
                         android:hint="Ingresa contraseña"
                         android:password="true"
@@ -381,7 +414,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/TextViewOlvideContrasenia"
-                    android:layout_below="@id/editTextContraseña"
+                    android:layout_below="@id/ll_password"
                     android:text="Olvidé mi contraseña"
                     android:textColor="@color/blanco"
                     android:gravity="right"
@@ -399,6 +432,7 @@
                     android:text="Iniciar sesión"
                     android:layout_below="@id/TextViewOlvideContrasenia"
                     android:gravity="center"
+                    android:layout_gravity="center_horizontal"
                     android:layout_marginTop="35dp"
                     android:layout_marginRight="20dp"
                     android:layout_marginLeft="20dp"
@@ -410,7 +444,26 @@
                     android:elevation="4dp"
                     />
 
-            </LinearLayout>
+                <RelativeLayout
+                    android:id="@+id/relativelayout_check"
+                    android:layout_below="@+id/TextViewOlvideContrasenia"
+                    android:layout_centerHorizontal="true"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:background="@drawable/sucessfull"
+                    android:backgroundTint="@color/verde_dos"
+                    android:visibility="invisible">
+
+                    <ImageView
+                        android:id="@+id/imageview_check"
+                        android:background="@drawable/ic_check"
+                        android:backgroundTint="#FFFFFF"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
+                </RelativeLayout>
+
+            </RelativeLayout>
 
         </ScrollView>
 
@@ -538,7 +591,6 @@
         android:visibility="invisible"
         >
 
-
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
@@ -592,53 +644,6 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/RelativeLayoutMensajeDeSalir"
-            android:background="@drawable/fondo_mensaje_bienvenida"
-            android:layout_marginRight="20dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginBottom="4dp"
-            android:elevation="4dp"
-            android:visibility="invisible"
-            >
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/TextViewMensajeDeSalir"
-                android:text="La X en la barra de arriba, es para salir de la aplicación."
-                android:textSize="20dp"
-                android:textColor="@color/negro"
-                android:gravity="center"
-                android:layout_margin="15dp"
-                />
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:id="@+id/ButtonSiguienteMensajeDeSalir"
-                android:layout_below="@+id/TextViewMensajeDeSalir"
-                android:layout_gravity="right"
-                android:layout_marginBottom="8dp"
-                android:layout_marginRight="8dp"
-                >
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text=" Siguiente"
-                    android:textSize="20dp"
-                    android:textColor="@color/colorPrimary"
-                    />
-
-            </LinearLayout>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:id="@+id/RelativeLayoutMensajeDeAjustes"
             android:layout_alignParentTop="true"
             android:background="@drawable/fondo_mensaje_bienvenida"
@@ -652,7 +657,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/TextViewMensajeDeAjustes"
-                android:text="En el icono de 3 puntitos puedes encontrar algunos a justes de apaciencia de la aplicación"
+                android:text="@string/step_three"
                 android:textSize="20dp"
                 android:textColor="@color/negro"
                 android:gravity="center"
@@ -698,15 +703,6 @@
         android:visibility="invisible"
         >
 
-        <!-- <LinearLayout
-            android:layout_weight="2"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:orientation="vertical"
-            >
-
-        </LinearLayout> -->
-
         <LinearLayout
             android:layout_weight="1"
             android:layout_width="fill_parent"
@@ -731,7 +727,7 @@
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/abierto"
+                    android:src="@drawable/cerrado"
                     android:id="@+id/BotonAbre"
                     android:layout_gravity="center"
                     />
@@ -827,24 +823,6 @@
             android:layout_height="fill_parent"
             android:orientation="vertical"
             >
-
-            <RelativeLayout
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                >
-
-                <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_alignParentBottom="true"
-                    android:layout_alignParentRight="true"
-                    android:layout_margin="10dp"
-                    android:src="@drawable/ayudadota"
-                    android:id="@+id/ayudaPP"
-                    android:elevation="4dp"
-                    />
-
-            </RelativeLayout>
 
         </LinearLayout>
 

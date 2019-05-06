@@ -3,18 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:title="Ajustes"
-        android:id="@+id/ajustes"
-        app:showAsAction="never"
-        />
-
-    <item
-        android:title="Ayuda"
-        android:id="@+id/help"
-        app:showAsAction="never"
-        />
-
-    <item
         android:title="Cerrar sesión"
         android:id="@+id/salir"
         app:showAsAction="never"
