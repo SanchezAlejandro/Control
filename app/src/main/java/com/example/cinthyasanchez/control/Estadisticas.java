@@ -2,12 +2,7 @@ package com.example.cinthyasanchez.control;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
-import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.graphics.Color;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -36,6 +31,7 @@ public class Estadisticas extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_estadisticas);
+        overridePendingTransition(R.anim.left, R.anim.left_off);
 
         Toolbar bar = (Toolbar) findViewById(R.id.bar);
         setSupportActionBar(bar);
@@ -80,6 +76,7 @@ public class Estadisticas extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onClick(View v) {
                 finish();
+                overridePendingTransition(R.anim.right,R.anim.right_off);
             }
         });
     }
@@ -92,7 +89,8 @@ public class Estadisticas extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onBackPressed() {
-        finish();
+        super.finish();
+        overridePendingTransition(R.anim.right,R.anim.right_off);
     }
 
     public void muestraDialog() {

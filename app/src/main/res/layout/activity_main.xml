@@ -67,7 +67,7 @@
         android:background="@drawable/fondo_mensaje_bienvenida"
         android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp"
-
+        android:visibility="invisible"
         >
 
         <TextView
@@ -116,36 +116,34 @@
         android:visibility="invisible"
         >
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Control de Acceso"
-            android:textColor="@color/blanco"
-            android:id="@+id/textViewtituloRegistrarse"
-            android:textSize="32dp"
-            android:textStyle="bold"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
-            android:gravity="center"
-            />
-
         <ScrollView
-            android:layout_below="@+id/textViewtituloRegistrarse"
-            android:layout_marginTop="60dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             >
 
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Control de Acceso"
+                    android:textColor="@color/blanco"
+                    android:id="@+id/textViewtituloRegistrarse"
+                    android:textSize="32dp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:gravity="center"
+                    />
 
                 <LinearLayout
                     android:orientation="vertical"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     >
 
                     <TextView
@@ -280,34 +278,32 @@
         android:layout_height="match_parent"
         android:id="@+id/relativeLayoutLogin"
         android:background="@color/colorPrimary"
-        android:visibility="invisible"
+
         >
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Control de Acceso"
-            android:textColor="@color/blanco"
-            android:id="@+id/textViewtituloLogin"
-            android:textSize="32dp"
-            android:textStyle="bold"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
-            android:gravity="center"
-            />
-
         <ScrollView
-            android:layout_below="@id/textViewtituloLogin"
-            android:layout_marginTop="70dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             >
 
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Control de Acceso"
+                    android:textColor="@color/blanco"
+                    android:id="@+id/textViewtituloLogin"
+                    android:textSize="32dp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:gravity="center"
+                    />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -413,6 +409,7 @@
                     android:backgroundTint="@color/blanco"
                     android:elevation="4dp"
                     />
+
             </LinearLayout>
 
         </ScrollView>

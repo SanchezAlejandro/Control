@@ -1,25 +1,15 @@
 package com.example.cinthyasanchez.control;
 
-import android.annotation.SuppressLint;
 import android.app.Dialog;
-import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.graphics.Color;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.Window;
 import android.webkit.WebView;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -40,6 +30,7 @@ public class AbreCierra extends AppCompatActivity implements View.OnClickListene
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_abre_cierra);
+        overridePendingTransition(R.anim.left, R.anim.left_off);
 
         Toolbar bar = (Toolbar) findViewById(R.id.bar);
         setSupportActionBar(bar);
@@ -65,6 +56,8 @@ public class AbreCierra extends AppCompatActivity implements View.OnClickListene
             @Override
             public void onClick(View v) {
                 finish();
+                overridePendingTransition(R.anim.right,R.anim.right_off);
+
             }
         });
 
@@ -78,7 +71,8 @@ public class AbreCierra extends AppCompatActivity implements View.OnClickListene
 
     @Override
     public void onBackPressed() {
-        finish();
+        super.finish();
+        overridePendingTransition(R.anim.right,R.anim.right_off);
     }
 
     public void muestraDialog() {

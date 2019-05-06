@@ -19,7 +19,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewAnimationUtils;
+import android.view.ViewGroup;
 import android.view.Window;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -43,11 +46,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button okColor, iniciar, registrarme;
     TextView saludoDeBienvenida, olvide;
     ImageView aiuda;
-
     EditText usuarioRegistro, contraseniaRegistro, editCorreo, usuariologin, contraseniaLogin;
-
-    int m = 1;
-    int b = 1;
+    Animation slide_up;
+    boolean pressed = false;
 
     @SuppressLint({"ResourceType", "ApplySharedPref"})
     @Override
@@ -78,6 +79,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         saludoDeBienvenida = findViewById(R.id.textViewBienvenido);
         aiuda = findViewById(R.id.ayudaPP);
         olvide = findViewById(R.id.TextViewOlvideContrasenia);
+        slide_up = AnimationUtils.loadAnimation(this, R.anim.slide_down);
 
         abre.setOnClickListener(this);
         estadistica.setOnClickListener(this);
@@ -262,8 +264,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             usuariologin.setError("Usuario no encontrado");
                             contraseniaLogin.setError("Contraseña no valida");
                         } else {
-                            botones.setVisibility(View.VISIBLE);
+                            //iniciar.setText("");
+                            //v.startAnimation(slide_up);
+                            login.setAnimation(slide_up);
                             login.setVisibility(View.INVISIBLE);
+                            botones.setVisibility(View.VISIBLE);
                             bar.setVisibility(View.VISIBLE);
                         }
                     }

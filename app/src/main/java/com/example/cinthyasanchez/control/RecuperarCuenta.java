@@ -2,26 +2,20 @@ package com.example.cinthyasanchez.control;
 
 import android.app.Dialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.StrictMode;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.Toolbar;
 
 import java.util.Objects;
 import java.util.Properties;
-import java.util.concurrent.Delayed;
 
 import javax.mail.Authenticator;
 import javax.mail.Message;
@@ -29,8 +23,6 @@ import javax.mail.PasswordAuthentication;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
-
-import static javax.mail.internet.InternetAddress.*;
 
 public class RecuperarCuenta extends AppCompatActivity implements View.OnClickListener{
 
@@ -46,6 +38,7 @@ public class RecuperarCuenta extends AppCompatActivity implements View.OnClickLi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recuperar_cuenta);
+        overridePendingTransition(R.anim.left, R.anim.left_off);
 
         android.support.v7.widget.Toolbar bar = (android.support.v7.widget.Toolbar) findViewById(R.id.bar);
         setSupportActionBar(bar);
@@ -63,6 +56,7 @@ public class RecuperarCuenta extends AppCompatActivity implements View.OnClickLi
             @Override
             public void onClick(View v) {
                 finish();
+                overridePendingTransition(R.anim.right,R.anim.right_off);
             }
         });
     }
@@ -195,5 +189,11 @@ public class RecuperarCuenta extends AppCompatActivity implements View.OnClickLi
                 }
                 break;
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.finish();
+        overridePendingTransition(R.anim.right,R.anim.right_off);
     }
 }
