@@ -258,7 +258,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         } else {
                             //iniciar.setText("");
                             //v.startAnimation(slide_up);
-                            //getWindow().setExitTransition(new Explode());
 
                             /*login.setAnimation(slide_up);
                             login.setVisibility(View.INVISIBLE);
@@ -330,20 +329,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 if(usuarioReg.isEmpty()){
                     usuarioRegistro.setError("Vacio");
                     usuarioRegistro.setAnimation(shakeEt);
+                    registrarme.setAnimation(shake);
                 } else {
                     if(contraseniaReg.isEmpty()){
                         contraseniaRegistro.setError("Vacio");
                         contraseniaRegistro.setAnimation(shakeEt);
+                        registrarme.setAnimation(shake);
                     } else {
                         if (correoReg.isEmpty()) {
                         editCorreo.setError("Vacio");
                         editCorreo.setAnimation(shakeEt);
+                        registrarme.setAnimation(shake);
                         } else {
                             boolean respuesta = validacionDeCorreo(correoReg);
 
                             if(respuesta==false){
                                 editCorreo.setError("Correo no valido");
                                 editCorreo.setAnimation(shakeEt);
+                                registrarme.setAnimation(shake);
                             }else {
                                 /*botones.setVisibility(View.VISIBLE);
                                 login.setVisibility(View.INVISIBLE);
