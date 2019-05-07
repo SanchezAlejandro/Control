@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
@@ -36,12 +37,16 @@ public class RecuperarCuenta extends AppCompatActivity implements View.OnClickLi
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_recuperar_cuenta);
+        //setContentView(R.layout.activity_recuperar_cuenta);
+        setContentView(R.layout.layout_app_bar);
         overridePendingTransition(R.anim.left, R.anim.left_off);
 
-        android.support.v7.widget.Toolbar bar = (android.support.v7.widget.Toolbar) findViewById(R.id.bar);
-        setSupportActionBar(bar);
-        bar.setTitle("Recuperar cuenta");
+        //android.support.v7.widget.Toolbar bar = (android.support.v7.widget.Toolbar) findViewById(R.id.bar);
+        //setSupportActionBar(bar);
+
+        setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        /*bar.setTitle("Recuperar cuenta");
 
         correoR = findViewById(R.id.editTextCorreo);
         enviarCorreo = findViewById(R.id.ButtonEnviarCorreo);
@@ -57,7 +62,7 @@ public class RecuperarCuenta extends AppCompatActivity implements View.OnClickLi
                 finish();
                 overridePendingTransition(R.anim.right,R.anim.right_off);
             }
-        });
+        });*/
     }
 
     public void muestraDialogErrorCorreo() {
