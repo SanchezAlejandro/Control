@@ -109,7 +109,7 @@ public class RecuperarCuenta extends AppCompatActivity implements View.OnClickLi
         switch (item.getItemId()){
             case R.id.action_salir:
                 LocalGeneral localGeneral = new LocalGeneral(this);
-                localGeneral.muestraDialog(true);
+                localGeneral.muestraDialog();
                 break;
         }
 

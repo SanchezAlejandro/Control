@@ -1,19 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AbreCierra">
-
-    <include layout="@layout/bar"/>
+    tools:context=".Fragments.OpenClose">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/todoAbreCierra"
-        android:layout_marginTop="?attr/actionBarSize"
-        android:elevation="4dp"
         >
 
         <WebView
@@ -21,13 +16,13 @@
             android:layout_height="1dp"
             android:id="@+id/web"
             android:visibility="invisible"
-            ></WebView>
+            />
 
         <RelativeLayout
+            android:layout_marginTop="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/relativeLayoutCerrado"
-            android:layout_centerInParent="true"
             >
 
             <ImageView
@@ -67,4 +62,4 @@
 
     </RelativeLayout>
 
-</RelativeLayout>
+</FrameLayout>

@@ -36,4 +36,14 @@
         <item name="android:statusBarColor">@android:color/transparent</item>
     </style>
 
+    <style name="Hint" parent="TextAppearance.Design.Hint">
+        <item name="android:textColor">@color/blanco</item>
+    </style>
+
+    <style name="EditText" parent="Theme.AppCompat.Light">
+        <item name="colorControlNormal">#EEEEEE</item>
+        <item name="colorControlActivated">#FFFFFF</item>
+        <item name="android:textColorHighlight">#FFFFFF</item>
+    </style>
+
 </resources>

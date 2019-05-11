@@ -59,7 +59,7 @@ public class AyudaControl extends AppCompatActivity {
         switch (item.getItemId()){
             case R.id.salir:
                 LocalGeneral localGeneral = new LocalGeneral(this);
-                localGeneral.muestraDialog(true);
+                localGeneral.muestraDialog();
         }
 
         return super.onOptionsItemSelected(item);

@@ -11,7 +11,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity"
+        <activity android:name=".Container"></activity>
+        <activity
+            android:name=".MainActivity"
             android:windowSoftInputMode="stateHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,14 +23,12 @@
         </activity>
         <activity android:name=".WebViewActivity" />
         <activity android:name=".WebViewActivityCerrar" />
-        <activity android:name=".AyudaPP" />
         <activity android:name=".AyudaControl" />
         <activity android:name=".AyudaEstadistica" />
-        <activity android:name=".AbreCierra" />
-        <activity android:name=".Estadisticas" />
-        <activity android:name=".RecuperarCuenta"
-            android:windowSoftInputMode="stateHidden"
-            android:theme="@style/App"></activity>
+        <activity
+            android:name=".RecuperarCuenta"
+            android:theme="@style/App"
+            android:windowSoftInputMode="stateHidden" />
     </application>
 
 </manifest>

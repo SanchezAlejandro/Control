@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -14,157 +13,139 @@
         android:layout_height="match_parent"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="?attr/actionBarSize"
-        >
+        android:layout_marginTop="?attr/actionBarSize" >
 
-        <TextView
-            android:id="@+id/tvtituloControl"
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="Control de Puerta"
-            android:textSize="24dp"
-            android:textColor="@color/colorPrimary"
-            android:layout_marginBottom="5dp"
-            />
+            android:layout_height="wrap_content">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@+id/tvtituloControl">
-
-            <ScrollView
+            <LinearLayout
+                android:layout_marginTop="8dp"
+                android:id="@+id/rlScrollDeControl"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:orientation="vertical">
 
-                <LinearLayout
-                    android:id="@+id/rlScrollDeControl"
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:orientation="vertical">
+                    android:text="En esta sección encontrarás una imagen de candado que indica si la puerta (que es controlada por la aplicación) se encuentra *Abierta* o *Cerrada*, como se muestra en la Imagen 001."
+                    android:textColor="@color/negro"
+                    android:textSize="16dp"
+                    android:layout_marginBottom="5dp"
+                    />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:layout_marginBottom="5dp"
+                    >
+
+                    <ImageView
+                        android:layout_width="300dp"
+                        android:layout_height="300dp"
+                        android:src="@drawable/control_estado" />
 
                     <TextView
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="En esta sección encontrarás una imagen de candado que indica si la puerta (que es controlada por la aplicación) se encuentra *Abierta* o *Cerrada*, como se muestra en la Imagen 001."
-                        android:textColor="@color/negro"
-                        android:textSize="16dp"
-                        android:layout_marginBottom="5dp"
-                        />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:orientation="vertical"
-                        android:layout_marginBottom="5dp"
-                        >
-
-                        <ImageView
-                            android:layout_width="300dp"
-                            android:layout_height="300dp"
-                            android:src="@drawable/control_estado" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Imagen 001" />
-
-                    </LinearLayout>
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="En la parte de abajo de la pantalla se encuentra un botón que controla la cerradura de la puerta, al presionarlo se abrirá o cerrará dependiendo del estado de la puerta indicada por la imagen de arriba."
-                        android:textColor="@color/negro"
-                        android:textSize="16dp"
-                        android:layout_marginBottom="5dp"/>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:orientation="vertical"
-                        android:layout_marginBottom="5dp"
-                        >
-
-                        <ImageView
-                            android:layout_width="300dp"
-                            android:layout_height="300dp"
-                            android:src="@drawable/control_abrir" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Imagen 002"
-                            android:gravity="center"
-                            />
-
-                    </LinearLayout>
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Si el botón dice *Abrir* y es precionado, se abrirá la cerradura y la pantalla cambiará, como se muestra en la Imagen 003."
-                        android:layout_marginBottom="5dp"
-                        />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:orientation="vertical"
-                        android:layout_marginBottom="5dp"
-                        >
-
-                        <ImageView
-                            android:layout_width="300dp"
-                            android:layout_height="300dp"
-                            android:src="@drawable/control_estado_abierto" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Imagen 003"
-                            android:gravity="center"/>
-
-                    </LinearLayout>
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Cuando el btón *Cerrar* (Imagen 004) es presionado la cerradurá se cerrará y la pantalla cambiará nuevamente como la Imagen 001."
-                        android:layout_marginBottom="5dp"
-                        />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:orientation="vertical"
-                        android:layout_marginBottom="5dp"
-                        >
-
-                        <ImageView
-                            android:layout_width="300dp"
-                            android:layout_height="300dp"
-                            android:src="@drawable/control_cerrar" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Imagen 004"
-                            android:gravity="center"/>
-
-                    </LinearLayout>
+                        android:text="Imagen 001" />
 
                 </LinearLayout>
 
-            </ScrollView>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="En la parte de abajo de la pantalla se encuentra un botón que controla la cerradura de la puerta, al presionarlo se abrirá o cerrará dependiendo del estado de la puerta indicada por la imagen de arriba."
+                    android:textColor="@color/negro"
+                    android:textSize="16dp"
+                    android:layout_marginBottom="5dp"/>
 
-        </RelativeLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:layout_marginBottom="5dp"
+                    >
+
+                    <ImageView
+                        android:layout_width="300dp"
+                        android:layout_height="300dp"
+                        android:src="@drawable/control_abrir" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Imagen 002"
+                        android:gravity="center"
+                        />
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Si el botón dice *Abrir* y es precionado, se abrirá la cerradura y la pantalla cambiará, como se muestra en la Imagen 003."
+                    android:layout_marginBottom="5dp"
+                    />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:layout_marginBottom="5dp"
+                    >
+
+                    <ImageView
+                        android:layout_width="300dp"
+                        android:layout_height="300dp"
+                        android:src="@drawable/control_estado_abierto" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Imagen 003"
+                        android:gravity="center"/>
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Cuando el btón *Cerrar* (Imagen 004) es presionado la cerradurá se cerrará y la pantalla cambiará nuevamente como la Imagen 001."
+                    android:layout_marginBottom="5dp"
+                    />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:layout_marginBottom="5dp"
+                    >
+
+                    <ImageView
+                        android:layout_width="300dp"
+                        android:layout_height="300dp"
+                        android:src="@drawable/control_cerrar" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Imagen 004"
+                        android:gravity="center"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
 
     </RelativeLayout>
 

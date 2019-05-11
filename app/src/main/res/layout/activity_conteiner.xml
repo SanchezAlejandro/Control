@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Container"
+    android:id="@+id/container">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include layout="@layout/bar"/>
+
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tabs"
+            app:layout_scrollFlags="scroll|enterAlways"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:tabTextColor="#E0E0E0"
+            app:tabSelectedTextColor="#FFFFFF"
+            android:background="@color/colorPrimary">
+
+            <android.support.design.widget.TabItem
+                android:text="Control de puerta"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <android.support.design.widget.TabItem
+                android:text="Estadísticas"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </android.support.design.widget.TabLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/viewpager_fragment_home"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/relativeLayoutColores"
+        android:background="@drawable/ajustescolor"
+        android:layout_marginTop="?attr/actionBarSize"
+        android:layout_marginLeft="50dp"
+        android:elevation="4dp"
+        android:visibility="invisible"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textViewColorDeFondo"
+            android:text="Color de fondo"
+            android:textSize="20dp"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold"
+            android:paddingLeft="15dp"
+            android:paddingTop="15dp"
+            />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:id="@+id/linearLayoutColores"
+            android:layout_below="@+id/textViewColorDeFondo"
+            android:paddingLeft="35dp"
+            android:paddingTop="10dp"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Color:"
+                android:textSize="17dp"
+                android:textColor="@color/colorPrimary"
+                />
+            <Spinner
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/spinnerColores"
+                android:dropDownSelector="@drawable/ripplespinner"
+                >
+
+            </Spinner>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textViewColorDeFondoDeBotones"
+            android:layout_below="@+id/linearLayoutColores"
+            android:text="Color de botones"
+            android:textSize="20dp"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold"
+            android:paddingLeft="15dp"
+            android:paddingTop="15dp"
+            />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:id="@+id/linearLayoutColoresDeBotones"
+            android:layout_below="@+id/textViewColorDeFondoDeBotones"
+            android:paddingLeft="35dp"
+            android:paddingTop="10dp"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Color:"
+                android:textSize="17dp"
+                android:textColor="@color/colorPrimary"
+                />
+            <Spinner
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/spinnerColoresBotones"
+                android:dropDownSelector="@drawable/ripplespinner"
+                >
+
+            </Spinner>
+
+        </LinearLayout>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/ripple"
+            android:id="@+id/buttonOkColor"
+            android:layout_below="@+id/linearLayoutColoresDeBotones"
+            android:layout_marginBottom="10dp"
+            android:textColor="@color/negro"
+            android:text="OK"
+            android:elevation="4dp"
+            android:stateListAnimator="@drawable/animacionboton"
+            />
+    </RelativeLayout>
+
+    <!-- tour -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/rlConsejos"
+        android:background="#BF000000"
+        android:elevation="8dp"
+        android:layout_marginTop="?attr/actionBarSize"
+        android:visibility="invisible"
+        >
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/RelativeLayoutMensajeDeBotones"
+            android:background="@drawable/fondo_mensaje_bienvenida"
+            android:layout_marginTop="72dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginBottom="4dp"
+            android:elevation="4dp"
+            android:visibility="invisible"
+            >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/TextViewMensajeDeBotones"
+                android:text="Estas secciones corresponden a las funciones de la aplicación."
+                android:textSize="20dp"
+                android:textColor="@color/negro"
+                android:gravity="center"
+                android:layout_margin="15dp"
+                />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:id="@+id/ButtonSiguienteMensajeDeBotones"
+                android:layout_below="@+id/TextViewMensajeDeBotones"
+                android:layout_gravity="right"
+                android:layout_marginBottom="8dp"
+                android:layout_marginRight="8dp"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" Siguiente"
+                    android:textSize="20dp"
+                    android:textColor="@color/colorPrimary"
+                    android:elevation="4dp"
+                    />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/RelativeLayoutMensajeDeAjustes"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/fondo_mensaje_bienvenida"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:elevation="8dp"
+            android:visibility="invisible"
+            >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/TextViewMensajeDeAjustes"
+                android:text="@string/step_three"
+                android:textSize="20dp"
+                android:textColor="@color/negro"
+                android:gravity="center"
+                android:layout_margin="15dp"
+                />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:id="@+id/ButtonSiguienteMensajeDeAjustes"
+                android:layout_below="@+id/TextViewMensajeDeAjustes"
+                android:layout_gravity="right"
+                android:layout_marginBottom="8dp"
+                android:layout_marginRight="8dp"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" Listo!"
+                    android:textSize="20dp"
+                    android:textColor="@color/colorPrimary"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginBottom="6dp"
+                    android:elevation="4dp"
+                    />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.view.View;
 import android.view.Window;
@@ -18,7 +19,7 @@ public class LocalGeneral {
         this.activity = activity;
     }
 
-    public void muestraDialog(boolean log) {
+    public void muestraDialog() {
         dialog = new Dialog(activity, R.style.Theme_Dialog_Translucent);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setCancelable(false);
@@ -26,15 +27,11 @@ public class LocalGeneral {
 
         TextView title = dialog.findViewById(R.id.text_titulo_cerrar_sesion);
 
-        if(!log){
-            title.setText("Saldrás de la aplicación");
-        }
-
         ((TextView) dialog.findViewById(R.id.text_cerrar_sesion)).setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
-                activity.finishAffinity();
+                activity.startActivity(new Intent(activity, MainActivity.class));
             }
         });
 
